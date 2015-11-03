@@ -59,17 +59,16 @@ h1, h2, h3 {
       <input type="text" name="number" id="number">
       <hr>
 
-      <input type="checkbox" name="new" value="New Request">New Request
+      <input type="checkbox" name="new" value="new request">New Request
       <br>
-      <input type="checkbox" name="additional" value="Additional Request">Additional Request
+      <input type="checkbox" name="additional" value="additional request">Additional Request
       <br>
-      <input type="checkbox" name="check" value="Student Worker">Student Worker
+      <input type="checkbox" name="check" value="student worker">Student Worker
       <br>
 
       <p>Copy Security of a Staff Member</p>
-      <input type="checkbox" name="current" value="Current">Current
-      <br>
-      <input type="checkbox" name="former" value="Former">Former]
+      <input type="checkbox" name="current" value="current">Current
+      <input type="checkbox" name="former" value="former">Former
       <br>
 
       <label for="name">Name:</label>
@@ -89,10 +88,22 @@ h1, h2, h3 {
       <input type="text" name="ferpa" id="ferpa">
       <hr>
 
-      <p>Which type of access do you need?</p>
-      <input type="checkbox" name="student" value="Student Records">Student Records
+      <p>Select the Academic Career(s). Please check all that apply.<p>
+      <input type="checkbox" name="ugrd" value="ugrd">UGRD
+      <input type="checkbox" name="grad" value="grad">GRAD
+      <input type="checkbox" name="med" value="med">MED
+      <input type="checkbox" name="vet" value="vet med">VET MED
+      <input type="checkbox" name="law" value="law">LAW
       <br>
+      <hr>
 
+      <p>Which type of access do you need?</p>
+      <input type="checkbox" name="student" value="student records">Student Records
+      <input type="checkbox" name="admissions" value="admissions">Admissions
+      <input type="checkbox" name="studentfin" value="student financials">Student Financials
+      <input type="checkbox" name="studentaid" value="student financial aid">Student Financial Aid
+      <input type="checkbox" name="reserved" value="reserved access">Reserved Access
+      <hr>
 
       <button class="button" type="submit" name="submit" >SUBMIT</button>
     </div>
