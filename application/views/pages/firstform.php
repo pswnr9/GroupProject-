@@ -11,6 +11,15 @@
     font-size: 40;
 
 }
+
+h1, h2, h3 {
+  text-align: center;
+}
+
+#Security{
+  text-align: justify;
+  border-style: solid;
+}
 </style>
 <body>
 
@@ -26,7 +35,7 @@
 
   <hr>
 
-  <h3>Send Request Directly To: Student Information Systems 130 Jesse Hall</h3>
+  <h3>Instead of sending request directly to Student Information Systems 130 Jesse Hall, simply submit this form.</h3>
   <hr>
 
   <form name="form" action="form.php" method="POST">
@@ -36,8 +45,37 @@
       <input type="text" name="username" id="username">
       <label for="title">Title:</title>
       <input type="text" name="title" id="title">
+      <label for="department">Department:</label>
+      <input type="text" name="department" id="department">
+      <hr>
 
+      <label for="pawprint">Pawprint:</label>
+      <input type="text" name="pawprint" id="pawprint">
+      <label for="emplid">EmplID:</label>
+      <input type="text" name="emplid" id="emplid">
+      <label for="campus">Campus Address:</label>
+      <input type="text" name="campus" id="campus">
+      <label for="number">Phone Number:</label>
+      <input type="text" name="number" id="number">
+      <hr>
+
+      <input type="checkbox" name="new" value="New Request">New Request
+      <br>
+      <input type="checkbox" name="additional" value="Additional Request">Additional Request
+      <br>
+      <input type="checkbox" name="check" value="Student Worker">Student Worker
+      <br>
+
+      <p>Copy Security of a Staff Member</p>
+      <input type="checkbox" name="current" value="Current">Current
+      <br>
+      <input type="checkbox" name="former" value="Former">Former]
+      <br>
+
+      <button class="button" type="submit" name="submit" >SUBMIT</button>
     </div>
+
+
   </form>
 
 </body>
