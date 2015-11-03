@@ -72,6 +72,28 @@ h1, h2, h3 {
       <input type="checkbox" name="former" value="Former">Former]
       <br>
 
+      <label for="name">Name:</label>
+      <input type="text" name="name" id="name">
+      <label for="position">Position:</label>
+      <input type="text" name="position" id="position">
+      <label for="sso">SSO/Pawprint:</label>
+      <input type="text" name="sso" id="sso">
+      <label for="emplid2">EmplID:</label>
+      <input type="text" name="emplid2" id="emplid2">
+      <hr>
+
+      <p>A passing score of 85% on theFERPA Quiz is required before access to student data is approved. To request
+        access to the FERPA tutorial and access the FERPA quiz can be done at http://myzoutraining.missouri.edu/ferpareq.php.
+      </p>
+      <label for="ferpa">Ferpa Score:</label>
+      <input type="text" name="ferpa" id="ferpa">
+      <hr>
+
+      <p>Which type of access do you need?</p>
+      <input type="checkbox" name="student" value="Student Records">Student Records
+      <br>
+
+
       <button class="button" type="submit" name="submit" >SUBMIT</button>
     </div>
 
