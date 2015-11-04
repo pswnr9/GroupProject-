@@ -1,17 +1,17 @@
 
+
 <html>
 <head>
     <title>Login Page</title>
-    <!--<link rel="stylesheet" type="text/css" href="style/style.css">
-    need to create a style sheet for the style attributes-->
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-    <style>
+    <!--<style>
         body{
             text-align: center;
             background-color: white;
         }
-        div{
-            background-color: lightgrey;
+        .login1{
+            background-color: lightgray;
             width: 50%;
             margin: 0 auto; 
             align-items: center;
@@ -36,7 +36,7 @@
         }
         .header2{
             font-size: 26;
-        }
+        }-->
         
        
     </style>
@@ -51,7 +51,7 @@
   <form name="Login" action="login.php" method="POST">
                 <input type="hidden" name="action" value="do_login">
                 <p class="login"> LOGIN </p>
-                <div>
+                <div class="login1">
                     <p>
 
                         <label for="username">USER NAME:</label>
