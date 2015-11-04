@@ -1,35 +1,12 @@
 <html>
 <head>
 <title>Security Form</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 </head>
-<style>
-.Header{
-    background-color: #303030;
-    color: #FFCC33;
-    text-align: center;
-    padding: 50px;
-    font-size: 40;
-
-}
-
-h1, h2, h3 {
-  text-align: center;
-}
-
-#Security{
-  text-align: justify;
-  border-style: solid;
-}
-</style>
 <body>
 
-    <img src="https://myzou.missouri.edu/um_extcopy/myzou/tigermark.gif" alt="tiger" style="float: left">
-      <h1 class="Header">myZou SECURITY Request Form
-          <p class="header2">
-          University of Missouri-Columbia
-          </p>
-      </h1>
-
+    
   <h1>myZou Security Request Form</h1>
   <h2>University of Missouri-Columbia</h2>
 
@@ -38,17 +15,31 @@ h1, h2, h3 {
   <h3>Instead of sending request directly to Student Information Systems 130 Jesse Hall, simply submit this form.</h3>
   <hr>
 
+  <a href="#menu" id="menuLink" class="menu-link">
+      <!-- Hamburger icon -->
+      <span></span>
+  </a>
+
   <form name="form" action="form.php" method="POST">
     <div id="Security">
+    <div class="pure-g">
 
+      <div class="pure-u-1-3">
       <label for="username">Username:</label>
       <input type="text" name="username" id="username">
+      </div>
+      <div class="pure-u-1-3">
       <label for="title">Title:</title>
       <input type="text" name="title" id="title">
+    </div>
+    <div class="pure-u-1-3">
       <label for="department">Department:</label>
       <input type="text" name="department" id="department">
+    </div>
       <hr>
 
+
+    </div>
       <label for="pawprint">Pawprint:</label>
       <input type="text" name="pawprint" id="pawprint">
       <label for="emplid">EmplID:</label>
@@ -105,7 +96,7 @@ h1, h2, h3 {
       <input type="checkbox" name="reserved" value="reserved access">Reserved Access
       <hr>
 
-      <button class="button" type="submit" name="submit" >SUBMIT</button>
+      <button class="button" type="submit" name="submit" >Submit</button>
     </div>
 
 
