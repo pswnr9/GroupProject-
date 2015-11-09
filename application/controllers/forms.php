@@ -1,5 +1,5 @@
 <?php
-class Pages extends CI_Controller {
+class Forms extends CI_Controller {
 
         //Basic functions
         public function view($page = 'home')
