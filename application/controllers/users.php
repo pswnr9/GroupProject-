@@ -65,5 +65,7 @@ class Users extends CI_Controller {
             $this->load->view('users/home', $data);
             $this->load->view('templates/footer', $data);
         }
+
+
 }
 ?>
