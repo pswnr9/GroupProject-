@@ -24,7 +24,7 @@
             <h1 class="LogInHeading">Login</h1>
             <div class="TextBoxContainer">
                 <div class="TextBoxLabel">
-                    User Name                
+                    PawPrint                
                 </div>
                 <input type="text" class="Input">
             </div>
