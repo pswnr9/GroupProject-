@@ -2,9 +2,10 @@
 <html>
 <head>
 <title>Tech Page</title>
-	<link rel="stylesheet" href="main.css">
+<link rel="stylesheet" type="text/css" href="style.css">
+	<!--<link rel="stylesheet" href="main.css">
   <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300' rel='stylesheet' type='text/css'>
-  <script src="main.js"></script>
+  <script src="main.js"></script>-->
   <!--<style> 
   html, body{
     margin: 0;
