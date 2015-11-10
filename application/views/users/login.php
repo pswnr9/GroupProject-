@@ -1,11 +1,11 @@
 <!doctype html>
 
 <html lang="en">
-    
-<head>  
+
+<head>
   <meta charset="utf-8">
   <title>SWE Group Project</title>
-  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
   <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300' rel='stylesheet' type='text/css'>
   <script src="main.js"></script>
 </head>
@@ -24,13 +24,13 @@
             <h1 class="LogInHeading">Login</h1>
             <div class="TextBoxContainer">
                 <div class="TextBoxLabel">
-                    User Name                
+                    User Name
                 </div>
                 <input type="text" class="Input">
             </div>
             <div class="TextBoxContainer">
                 <div class="TextBoxLabel">
-                    Password                
+                    Password
                 </div>
                 <input type="text" class="Input">
             </div>
