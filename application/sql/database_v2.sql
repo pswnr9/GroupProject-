@@ -197,18 +197,6 @@ CREATE TABLE `student_record_access` (
   `academic_advising_profile` tinyint(1) NOT NULL
 );
 
--- --------------------------------------------------------
-
---
--- Table structure for table `application`
---
-
-CREATE TABLE `application` (
-  `app_id` int PRIMARY KEY NOT NULL,
-  `app_name` varchar(50) NOT NULL,
-  `corresponding_form_name` varchar(60) NOT NULL,
-  `questions` varchar(1000) NOT NULL
-);
 
 
 -- --------------------------------------------------------
@@ -221,13 +209,12 @@ INSERT INTO `tech_user_info` (`pawprint`, `username`, `email`, `password`, `salt
 ('cwcf34', 'Cody Cameron', 'cwcf34@mail.missouri.edu', '123321', '123'),
 ('twn64', 'Tianbo Wang', 'twn64@mail.missouri.edu', '123321', '123');
 
+-- INSERT INTO `emp_user_info` (`pawprint`, `username`, `empiid`, `title`, `organization`, `address`, `phone_num`, `password`, `salt`) VALUES
+-- ('cwcf34', 'Cody Cameron', 'cwcf34@mail.missouri.edu', '123321', '123'),
+-- ('twn64', 'Tianbo Wang', 'twn64@mail.missouri.edu', '123321', '123');
 
-INSERT INTO `application` (`app_id`, `app_name`, `corresponding_form_name`, `questions`) VALUES
-('1', 'student_record_access', 'student_record_access', 'who are you, what do you want'),
-('2', 'admission_access', 'admission_access', 'who is your mother, who is your father'),
-('3', 'financial_access', 'financial_access', 'what is the time'),
-('4', 'financial_aid_access', 'financial_aid_access', 'when you are born'),
-('5', 'reserved_access', 'reserved_access', 'where is your grandmother, who is your best friend');
+
+
 
 
 

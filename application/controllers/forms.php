@@ -86,7 +86,7 @@ class Forms extends CI_Controller {
 
     public function thirdform($page = '') {
 
-        if ( ! file_exists(APPPATH.'/views/forms/secondform.php') || $page != '') {
+        if ( ! file_exists(APPPATH.'/views/forms/thirdform.php') || $page != '') {
             // Whoops, we don't have a page for that!
             show_404();
         }
@@ -100,12 +100,73 @@ class Forms extends CI_Controller {
 
         $data['title'] = ucfirst($page); // Capitalize the first letter
         $this->load->view("templates/header", $data);
-        $this->load->view("forms/secondform", $data);
+        $this->load->view("forms/thirdform", $data);
         $this->load->view("templates/footer", $data);
 
     }
 
+    public function fourthform($page = '') {
 
+        if ( ! file_exists(APPPATH.'/views/forms/fourthform.php') || $page != '') {
+            // Whoops, we don't have a page for that!
+            show_404();
+        }
+
+        if(!session()) {
+            //redirect("index.php/users/login");
+        }
+
+
+
+
+        $data['title'] = ucfirst($page); // Capitalize the first letter
+        $this->load->view("templates/header", $data);
+        $this->load->view("forms/fourthform", $data);
+        $this->load->view("templates/footer", $data);
+
+    }
+
+    public function fifthform($page = '') {
+
+        if ( ! file_exists(APPPATH.'/views/forms/fifthform.php') || $page != '') {
+            // Whoops, we don't have a page for that!
+            show_404();
+        }
+
+        if(!session()) {
+            //redirect("index.php/users/login");
+        }
+
+
+
+
+        $data['title'] = ucfirst($page); // Capitalize the first letter
+        $this->load->view("templates/header", $data);
+        $this->load->view("forms/fifthform", $data);
+        $this->load->view("templates/footer", $data);
+
+    }
+
+    public function sixthform($page = '') {
+
+        if ( ! file_exists(APPPATH.'/views/forms/sixthform.php') || $page != '') {
+            // Whoops, we don't have a page for that!
+            show_404();
+        }
+
+        if(!session()) {
+            //redirect("index.php/users/login");
+        }
+
+
+
+
+        $data['title'] = ucfirst($page); // Capitalize the first letter
+        $this->load->view("templates/header", $data);
+        $this->load->view("forms/sixthform", $data);
+        $this->load->view("templates/footer", $data);
+
+    }
 
 
 }
