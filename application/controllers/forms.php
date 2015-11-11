@@ -129,5 +129,27 @@ class Forms extends CI_Controller {
         $this->load->view("forms/fifthform", $data);
 
     }
+        public function sixthform($page = '') {
+
+        if ( ! file_exists(APPPATH.'/views/forms/sixthform.php') || $page != '') {
+            // Whoops, we don't have a page for that!
+            show_404();
+        }
+
+        $this->load->helper('url');
+        $this->load->helper('form');
+        $this->load->helper("session");
+        $this->load->helper("checking");
+        if(!session()) {
+            //redirect("index.php/users/login");
+        }
+
+
+
+
+        $data['title'] = ucfirst($page); // Capitalize the first letter
+        $this->load->view("forms/sixthform", $data);
+
+    }
 }
 ?>
