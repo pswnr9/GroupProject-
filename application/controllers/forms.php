@@ -1,6 +1,15 @@
 <?php
 class Forms extends CI_Controller {
+    public function __construct() {
+        parent::__construct();
 
+        $this->load->model("form");
+
+        $this->load->helper('url');
+        $this->load->helper('form');
+        $this->load->helper("session");
+        $this->load->helper("checking");
+    }
     //Basic functions
     public function firstform($page = '') {
 
@@ -9,33 +18,48 @@ class Forms extends CI_Controller {
             show_404();
         }
 
-        $this->load->helper('url');
-        $this->load->helper('form');
-        $this->load->helper("session");
-        $this->load->helper("checking");
+
         if(!session()) {
             //redirect("index.php/users/login");
         }
 
-        switch($page) {
-            case 'firstform':
-                //query from database and pull all the information about the user and then auto populate
-                if($_POST) {
-                    if(pass_checking($_POST)) {
-                        // redirect();
-                    } else {
+        $data['title'] = "firstform";
 
-                    }
+        //query from database and pull all the information about the user and then auto populate
+        if($_POST) {
+            foreach ($_POST as $key => $value) {
+                $data[$key] = htmlspecialchars($value);
+
+                if(empty($data[$key])) {
+                    $data = $_POST;
+                    $data['format_error'] = true;
+                    $this->load->view('templates/header', $data);
+                    $this->load->view('forms/firstform', $data);
+                    $this->load->view('templates/footer', $data);
+                    return;
                 }
-                # code...
-                break;
-            default:
-                break;
+            }
+
+            if(!preg_match("/^[0-9]{3}-[0-9]{4}-[0-9]{4}$/", $data["phone_num"])) {
+                // $phone is invalid
+                $data['format_error'] = true;
+                $this->load->view('templates/header', $data);
+                $this->load->view('forms/firstform', $data);
+                $this->load->view('templates/footer', $data);
+                return;
+            }
+
+            $this->form->insertStudentRecordsAccess($data);
+
+            redirect("index.php/forms/"+$data["access_type"]);
+
+        } else {
+            $data = $this->form->getAutoFill($_SESSION['pawprint']);
+            $this->load->view("templates/header", $data);
+            $this->load->view("forms/firstform", $data);
+            $this->load->view("templates/footer", $data);
         }
 
-
-        $data['title'] = ucfirst($page); // Capitalize the first letter
-        $this->load->view("forms/firstform", $data);
     }
 
     public function secondform($page = '') {
@@ -45,10 +69,7 @@ class Forms extends CI_Controller {
             show_404();
         }
 
-        $this->load->helper('url');
-        $this->load->helper('form');
-        $this->load->helper("session");
-        $this->load->helper("checking");
+
         if(!session()) {
             //redirect("index.php/users/login");
         }
@@ -57,9 +78,97 @@ class Forms extends CI_Controller {
 
 
         $data['title'] = ucfirst($page); // Capitalize the first letter
+        $this->load->view("templates/header", $data);
         $this->load->view("forms/secondform", $data);
+        $this->load->view("templates/footer", $data);
 
     }
 
+    public function thirdform($page = '') {
+
+        if ( ! file_exists(APPPATH.'/views/forms/secondform.php') || $page != '') {
+            // Whoops, we don't have a page for that!
+            show_404();
+        }
+
+        if(!session()) {
+            //redirect("index.php/users/login");
+        }
+
+
+
+
+        $data['title'] = ucfirst($page); // Capitalize the first letter
+        $this->load->view("templates/header", $data);
+        $this->load->view("forms/secondform", $data);
+        $this->load->view("templates/footer", $data);
+
+    }
+
+    public function fouthform($page = '') {
+
+        if ( ! file_exists(APPPATH.'/views/forms/secondform.php') || $page != '') {
+            // Whoops, we don't have a page for that!
+            show_404();
+        }
+
+
+        if(!session()) {
+            //redirect("index.php/users/login");
+        }
+
+
+
+
+        $data['title'] = ucfirst($page); // Capitalize the first letter
+        $this->load->view("templates/header", $data);
+        $this->load->view("forms/secondform", $data);
+        $this->load->view("templates/footer", $data);
+
+    }
+
+    public function fifthform($page = '') {
+
+        if ( ! file_exists(APPPATH.'/views/forms/secondform.php') || $page != '') {
+            // Whoops, we don't have a page for that!
+            show_404();
+        }
+
+
+        if(!session()) {
+            //redirect("index.php/users/login");
+        }
+
+
+
+
+        $data['title'] = ucfirst($page); // Capitalize the first letter
+        $this->load->view("templates/header", $data);
+        $this->load->view("forms/secondform", $data);
+        $this->load->view("templates/footer", $data);
+
+    }
+
+    public function sixthform($page = '') {
+
+        if ( ! file_exists(APPPATH.'/views/forms/secondform.php') || $page != '') {
+            // Whoops, we don't have a page for that!
+            show_404();
+        }
+
+
+        if(!session()) {
+            //redirect("index.php/users/login");
+        }
+
+
+
+
+        $data['title'] = ucfirst($page); // Capitalize the first letter
+        $this->load->view("templates/header", $data);
+        $this->load->view("forms/secondform", $data);
+        $this->load->view("templates/footer", $data);
+
+    }
 }
 ?>
