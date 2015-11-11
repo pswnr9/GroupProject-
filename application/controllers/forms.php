@@ -105,70 +105,8 @@ class Forms extends CI_Controller {
 
     }
 
-    public function fouthform($page = '') {
-
-        if ( ! file_exists(APPPATH.'/views/forms/secondform.php') || $page != '') {
-            // Whoops, we don't have a page for that!
-            show_404();
-        }
-
-
-        if(!session()) {
-            //redirect("index.php/users/login");
-        }
 
 
 
-
-        $data['title'] = ucfirst($page); // Capitalize the first letter
-        $this->load->view("templates/header", $data);
-        $this->load->view("forms/secondform", $data);
-        $this->load->view("templates/footer", $data);
-
-    }
-
-    public function fifthform($page = '') {
-
-        if ( ! file_exists(APPPATH.'/views/forms/secondform.php') || $page != '') {
-            // Whoops, we don't have a page for that!
-            show_404();
-        }
-
-
-        if(!session()) {
-            //redirect("index.php/users/login");
-        }
-
-
-
-
-        $data['title'] = ucfirst($page); // Capitalize the first letter
-        $this->load->view("templates/header", $data);
-        $this->load->view("forms/secondform", $data);
-        $this->load->view("templates/footer", $data);
-
-    }
-
-    public function sixthform($page = '') {
-
-        if ( ! file_exists(APPPATH.'/views/forms/secondform.php') || $page != '') {
-            // Whoops, we don't have a page for that!
-            show_404();
-        }
-
-
-        if(!session()) {
-            //redirect("index.php/users/login");
-        }
-
-
-
-
-        $data['title'] = ucfirst($page); // Capitalize the first letter
-        $this->load->view("templates/header", $data);
-        $this->load->view("forms/secondform", $data);
-        $this->load->view("templates/footer", $data);
-
-    }
 }
 ?>
