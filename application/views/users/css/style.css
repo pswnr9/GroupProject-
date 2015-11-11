@@ -116,3 +116,12 @@ html, body{
     font-size: 17px;
     font-weight: 300;
 }
+.logoutButton{
+background: black;
+color: white;
+font-family: "roboto condensed", sans-serif;
+vertical-align: middle;
+text-align: center;
+ border: none;
+float: right;
+}
