@@ -128,6 +128,7 @@
   </style>-->
 </head>
 <body>
+	<button class="logoutButton" type="submit" name="submit" >Log Out</button>
  <div class="header">
         <div class="LeftLogoContainer">
             <div class="Logo"></div>
