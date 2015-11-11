@@ -61,5 +61,73 @@ class Forms extends CI_Controller {
 
     }
 
+    public function thirdform($page = '') {
+
+        if ( ! file_exists(APPPATH.'/views/forms/thirdform.php') || $page != '') {
+            // Whoops, we don't have a page for that!
+            show_404();
+        }
+
+        $this->load->helper('url');
+        $this->load->helper('form');
+        $this->load->helper("session");
+        $this->load->helper("checking");
+        if(!session()) {
+            //redirect("index.php/users/login");
+        }
+
+
+
+
+        $data['title'] = ucfirst($page); // Capitalize the first letter
+        $this->load->view("forms/thirdform", $data);
+
+    }
+
+    public function fourthform($page = '') {
+
+        if ( ! file_exists(APPPATH.'/views/forms/fourthform.php') || $page != '') {
+            // Whoops, we don't have a page for that!
+            show_404();
+        }
+
+        $this->load->helper('url');
+        $this->load->helper('form');
+        $this->load->helper("session");
+        $this->load->helper("checking");
+        if(!session()) {
+            //redirect("index.php/users/login");
+        }
+
+
+
+
+        $data['title'] = ucfirst($page); // Capitalize the first letter
+        $this->load->view("forms/fourthform", $data);
+
+    }
+
+    public function fifthform($page = '') {
+
+        if ( ! file_exists(APPPATH.'/views/forms/fifthform.php') || $page != '') {
+            // Whoops, we don't have a page for that!
+            show_404();
+        }
+
+        $this->load->helper('url');
+        $this->load->helper('form');
+        $this->load->helper("session");
+        $this->load->helper("checking");
+        if(!session()) {
+            //redirect("index.php/users/login");
+        }
+
+
+
+
+        $data['title'] = ucfirst($page); // Capitalize the first letter
+        $this->load->view("forms/fifthform", $data);
+
+    }
 }
 ?>
