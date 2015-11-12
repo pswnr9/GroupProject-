@@ -313,7 +313,7 @@ class CI_DB_mysqli_driver extends CI_DB {
 		}
 
 
-		$str = mysqli_real_escape_string($this->conn_id, $str);
+		$str = @mysqli_real_escape_string($this->conn_id, $str);
 
 		// escape LIKE condition wildcards
 		if ($like === TRUE)
@@ -580,7 +580,7 @@ class CI_DB_mysqli_driver extends CI_DB {
 	{
 		return "REPLACE INTO ".$table." (".implode(', ', $keys).") VALUES (".implode(', ', $values).")";
 	}
-	
+
 	// --------------------------------------------------------------------
 
 	/**

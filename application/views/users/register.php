@@ -42,7 +42,7 @@
 
 <body>
     <form name="Register" action="<?= $_SERVER['PHP_SELF'] ?>" method="POST">
-        <input type="hidden" name="action" value="register">
+        <!-- <input type="hidden" name="action" value="register"> -->
         <p class="register"> Register </p>
         <div class="login1">
             <div>
@@ -51,15 +51,15 @@
             </div>
             <div>
                 <label for="usernamereg">USER NAME:</label>
-                <input type="text" name="usernamereg" id="usernamereg" value="" required>
+                <input type="text" name="username" id="usernamereg" value="" required>
             </div>
             <div>
                 <label for="passwordreg">PASSWORD:</label>
-                <input type="password" name="passwordreg" id="passwordreg" required>
+                <input type="password" name="password" id="passwordreg" required>
             </div>
             <div>
                 <label for="repasswordreg">retype PASSWORD:</label>
-                <input type="password" name="repasswordreg" id="repasswordreg" required>
+                <input type="password" name="password_retype" id="repasswordreg" required>
             </div>
             <div>
                 <label for="empiid">empiid:</label>
@@ -82,8 +82,10 @@
                 <input type="text" name="phone_num" id="phone_num" value="" required>
             </div>
         </div>
-        <button class="button" type="submit" name="register">Register</button>
+        <button class="button" type="submit" >Register</button>
     </form>
+    <p><?php echo isset($format_error) ? "format error: " . $format_error : ""; ?></p>
+    <p><?php echo isset($db_error) ? "db error: " . $db_error : ""; ?></p>
     <div>
         <p>already got an account?</p>
         <p>goes here <a href="<?php echo base_url() ?>index.php/users/login">login</a></p>
