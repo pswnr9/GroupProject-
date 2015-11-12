@@ -13,6 +13,21 @@ class Form extends CI_Model{
         $config['cachedir'] = '';
         $config['char_set'] = 'utf8';
         $config['dbcollat'] = 'utf8_general_ci';
+
+        /*$config['hostname'] = getenv('OPENSHIFT_MYSQL_DB_HOST');
+        $config['username'] = getenv('OPENSHIFT_MYSQL_DB_USERNAME');
+        $config['password'] = getenv('OPENSHIFT_MYSQL_DB_PASSWORD');
+        $config['database'] = getenv('OPENSHIFT_APP_NAME');
+        $config['dbdriver'] = 'mysqli';
+        $config['dbprefix'] = '';
+        $config['pconnect'] = FALSE;
+        $config['db_debug'] = TRUE;
+        $config['cache_on'] = FALSE;
+        $config['cachedir'] = '';
+        $config['char_set'] = 'utf8';
+        $config['dbcollat'] = 'utf8_general_ci';
+        $config['port'] = getenv('OPENSHIFT_MYSQL_DB_PORT');*/
+
         $this->load->database($config);
     }
 
