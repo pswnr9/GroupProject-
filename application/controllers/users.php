@@ -39,7 +39,7 @@ class Users extends CI_Controller {
             //$data = array("pawprint"=>$_POST['pawprint'], "password"=>$_POST['password'], "user_type"=>$_POST['type']);
             if($this->account->authentication($data)) {
                 session_start();
-                $_SESSION["pawprint"] = $dataT["pawprint"];
+                $_SESSION["pawprint"] = $data["pawprint"];
                 $_SESSION["user_type"] = $data["user_type"];
                 redirect("index.php/forms/firstform");
             } else {
@@ -91,6 +91,14 @@ class Users extends CI_Controller {
                 return;
             }
 
+            if($data["empiid"] != (integer)$data["empiid"]) {
+                $data['format_error'] = "empiid";
+                $this->load->view('templates/header', $data);
+                $this->load->view('users/register', $data);
+                $this->load->view('templates/footer', $data);
+                return;
+            }
+
             if($data["password"] != $data["password_retype"]) {
                 $data['format_error'] = "pss";
                 $this->load->view('templates/header', $data);
@@ -99,7 +107,7 @@ class Users extends CI_Controller {
                 return;
             }
 
-
+            unset($data["password_retype"]);
             if($this->account->registerEmployeeAccount($data)) {
                 session_start();
                 $_SESSION["pawprint"] = $data["pawprint"];

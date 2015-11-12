@@ -32,7 +32,7 @@ CREATE TABLE `emp_user_info` (
   `organization` varchar(55) NOT NULL,
   `address` varchar(100) NOT NULL,
   `phone_num` varchar(20) NOT NULL,
-  `password` varchar(55) NOT NULL,
+  `password` varchar(200) NOT NULL,
   `salt` varchar(55) NOT NULL
 );
 
@@ -47,7 +47,7 @@ CREATE TABLE `admin_user_info` (
   `username` varchar(55) NOT NULL,
   `email` varchar(55) NOT NULL,
   `address` varchar(100) NOT NULL,
-  `password` varchar(55) NOT NULL,
+  `password` varchar(200) NOT NULL,
   `salt` varchar(55) NOT NULL
 );
 
@@ -61,7 +61,7 @@ CREATE TABLE `tech_user_info` (
   `pawprint` varchar(10) PRIMARY KEY NOT NULL,
   `username` varchar(55) NOT NULL,
   `email` varchar(55) NOT NULL,
-  `password` varchar(55) NOT NULL,
+  `password` varchar(200) NOT NULL,
   `salt` varchar(55) NOT NULL
 );
 
