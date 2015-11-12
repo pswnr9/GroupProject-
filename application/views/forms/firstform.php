@@ -6,7 +6,7 @@
 </head>
 <body>
 
-    
+
   <h1>myZou Security Request Form</h1>
   <h2>University of Missouri-Columbia</h2>
 
@@ -20,7 +20,7 @@
       <span></span>
   </a>
 
-  <form name="form" action="form.php" method="POST">
+  <form name="form" action="<?= $_SERVER['PHP_SELF'] ?>" method="POST">
     <div id="Security">
     <div class="pure-g">
 

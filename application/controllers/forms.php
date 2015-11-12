@@ -20,13 +20,16 @@ class Forms extends CI_Controller {
 
 
         if(!session()) {
-            //redirect("index.php/users/login");
+            redirect("index.php/users/login");
         }
 
         $data['title'] = "firstform";
 
         //query from database and pull all the information about the user and then auto populate
         if($_POST) {
+            //should not do this....just because the model dosent work and I dont want the app to be crashed
+            session_destroy();
+            redirect("index.php/users/login");
             foreach ($_POST as $key => $value) {
                 $data[$key] = htmlspecialchars($value);
 
@@ -54,7 +57,7 @@ class Forms extends CI_Controller {
             redirect("index.php/forms/"+$data["access_type"]);
 
         } else {
-            $data = $this->form->getAutoFill($_SESSION['pawprint']);
+            //$data = $this->form->getAutoFill($_SESSION['pawprint']);
             $this->load->view("templates/header", $data);
             $this->load->view("forms/firstform", $data);
             $this->load->view("templates/footer", $data);

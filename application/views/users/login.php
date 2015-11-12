@@ -64,5 +64,8 @@
             <input type="submit" value="Submit" class="Submit">
         </form>
     </div>
+    <div>
+        <p style="font-size: 25px; color:red"><?php echo isset($auth_error) ? "password not corret or account not existed!!" . $auth_error : ""; ?></p>
+    </div>
 </body>
 </html>
