@@ -74,7 +74,7 @@ class Users extends CI_Controller {
 
                 if(empty($data[$key])) {
                     $data = $_POST;
-                    $data['format_error'] = true;
+                    $data['format_error'] = "empty";
                     $this->load->view('templates/header', $data);
                     $this->load->view('users/register', $data);
                     $this->load->view('templates/footer', $data);
@@ -82,20 +82,21 @@ class Users extends CI_Controller {
                 }
             }
 
-            if(!preg_match("/^[0-9]{3}-[0-9]{4}-[0-9]{4}$/", $data["phone_num"])) {
+            if(preg_match("/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/", $data["phone_num"]) != 1) {
                 // $phone is invalid
-                $data['format_error'] = true;
+                $data['format_error'] = "phone";
                 $this->load->view('templates/header', $data);
                 $this->load->view('users/register', $data);
                 $this->load->view('templates/footer', $data);
-              return;
+                return;
             }
 
             if($data["password"] != $data["password_retype"]) {
-                $data['format_error'] = true;
+                $data['format_error'] = "pss";
                 $this->load->view('templates/header', $data);
                 $this->load->view('users/register', $data);
                 $this->load->view('templates/footer', $data);
+                return;
             }
 
 
@@ -108,7 +109,7 @@ class Users extends CI_Controller {
                 //indicate that somthing wrong in the database. Maybe it's full..
                 $data['db_error'] = true;
                 $this->load->view('templates/header', $data);
-                $this->load->view('users/login', $data);
+                $this->load->view('users/register', $data);
                 $this->load->view('templates/footer', $data);
             }
 

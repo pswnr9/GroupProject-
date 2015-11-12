@@ -57,7 +57,7 @@ class CI_DB_mysql_driver extends CI_DB {
 
 	// whether SET NAMES must be used to set the character set
 	var $use_set_names;
-	
+
 	/**
 	 * Non-persistent database connection
 	 *
@@ -317,7 +317,7 @@ class CI_DB_mysql_driver extends CI_DB {
 		}
 		elseif (function_exists('mysql_escape_string'))
 		{
-			$str = mysql_escape_string($str);
+			$str = @mysql_escape_string($str);
 		}
 		else
 		{

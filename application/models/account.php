@@ -42,9 +42,9 @@ class Account extends CI_model {
         mt_srand();
         $userInfo['salt'] = mt_rand();
         $userInfo['password'] = hash('sha512', $userInfo['password'] . $userInfo['salt'], false);
-        $this->db->insert('emp_user_info', $userInfo); 
+        $this->db->insert('emp_user_info', $userInfo);
     }
-    
+
         public function registerAdminAccount($userInfo){
         foreach ($userInfo as $key => $value) {
             $userInfo[$key] = htmlspecialchars($value);
@@ -52,7 +52,7 @@ class Account extends CI_model {
         mt_srand();
         $userInfo['salt'] = mt_rand();
         $userInfo['password'] = hash('sha512', $userInfo['password'] . $userInfo['salt'], false);
-        $this->db->insert('admin_user_info', $userInfo); 
+        $this->db->insert('admin_user_info', $userInfo);
     }
 
 }
