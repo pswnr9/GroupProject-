@@ -85,7 +85,7 @@
         <button class="button" type="submit" >Register</button>
     </form>
     <p><?php echo isset($format_error) ? "format error: " . $format_error : ""; ?></p>
-    <p><?php echo isset($db_error) ? "db error: " . $db_error : ""; ?></p>
+    <p><?php echo isset($db_error) ? "db error: " . $db_error . " or the account has existed." : ""; ?></p>
     <div>
         <p>already got an account?</p>
         <p>goes here <a href="<?php echo base_url() ?>index.php/users/login">login</a></p>

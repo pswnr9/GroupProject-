@@ -3,11 +3,29 @@
 class Account extends CI_model {
     //initiate the database
     public function __construct() {
-            $this->load->database();
+        $config['hostname'] = 'localhost';
+        $config['username'] = 'root';
+        $config['password'] = '';
+        $config['database'] = 'TeamWt';
+        $config['dbdriver'] = 'mysqli';
+        $config['dbprefix'] = '';
+        $config['pconnect'] = FALSE;
+        $config['db_debug'] = TRUE;
+        $config['cache_on'] = FALSE;
+        $config['cachedir'] = '';
+        $config['char_set'] = 'utf8';
+        $config['dbcollat'] = 'utf8_general_ci';
+        $this->load->database($config);
     }
 
     //Returns true if authentication is successful, returns false if not
     public function authentication($data){
+
+        $query = $this->db->get_where('emp_user_info', array('pawprint' => $data["pawprint"]));
+        if(count($query->result()) == 0) {
+            return false;
+        }
+
         //Querying the database
         $this->db->select('salt, password');
         $this->db->where('pawprint', $data["pawprint"]);
@@ -39,10 +57,20 @@ class Account extends CI_model {
         foreach ($userInfo as $key => $value) {
             $userInfo[$key] = htmlspecialchars($value);
         }
+
+        $query = $this->db->get_where('emp_user_info', array('pawprint' => $userInfo["pawprint"]));
+
+        if(count($query->result()) != 0) {
+            return false;
+        }
+
         mt_srand();
         $userInfo['salt'] = mt_rand();
         $userInfo['password'] = hash('sha512', $userInfo['password'] . $userInfo['salt'], false);
-        $this->db->insert('emp_user_info', $userInfo);
+        if($this->db->insert('emp_user_info', $userInfo)) {
+            return true;
+        }
+
     }
 
         public function registerAdminAccount($userInfo){
