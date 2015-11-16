@@ -19,9 +19,11 @@ class Forms extends CI_Controller {
         }
 
 
+
         if(!session()) {
             redirect("index.php/users/login");
         }
+
 
         $data['title'] = "firstform";
 
