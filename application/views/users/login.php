@@ -30,14 +30,7 @@
 </head>
 
 <body>
-    <div class="header">
-        <div class="LeftLogoContainer">
-            <div class="Logo"></div>
-        </div>
-        <div class="TigerPic"></div>
-        <div class="MainHeading">University of Missouri -            Columbia
-        </div>
-    </div>
+    
     <div class="ContentContainer">
         <form class="LogInContainer" method="POST" action="<?= $_SERVER['PHP_SELF'] ?>">
             <h1 class="LogInHeading">Login</h1>

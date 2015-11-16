@@ -3,7 +3,7 @@ class Form extends CI_Model{
     public function __construct() {
         $config['hostname'] = 'localhost';
         $config['username'] = 'root';
-        $config['password'] = '';
+        $config['password'] = 'root';
         $config['database'] = 'TeamWt';
         $config['dbdriver'] = 'mysqli';
         $config['dbprefix'] = '';
