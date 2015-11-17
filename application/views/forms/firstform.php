@@ -1,23 +1,14 @@
 <html>
 <head>
 <title>Security Form</title>
-<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/stylesheets/style.css">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/stylesheets/style.css?v=1">
 <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-  form {
-    background-color: white;
-    border-style: solid;
-  }
-
-  #Smallheader {
-    text-align: center;
-  }
-
-</style>
 </head>
 <body>
 
+  <div class="formcontainer">
+  <div id="firstform">
   <div id="Smallheader">
   <h2>myZou Security Request Form</h2>
   <h2>University of Missouri-Columbia</h2>
@@ -27,10 +18,10 @@
   <h3>Instead of sending request directly to Student Information Systems 130 Jesse Hall, simply submit this form.</h3>
   </div>
 
- <div>
+
   <form name="form" action="<?= $_SERVER['PHP_SELF'] ?>" method="POST" class="pure-form pure-form-stacked">
     <h3>Enter your information.</h3>
-    <div id="Security">
+
     <div class="pure-g">
 
     <div class="pure-u-1-3">
@@ -130,28 +121,46 @@
     </div>
       <hr>
 
-      <p>Select the Academic Career(s). Please check all that apply.<p>
-      <input type="checkbox" name="ugrd" value="ugrd">UGRD
-      <input type="checkbox" name="grad" value="grad">GRAD
-      <input type="checkbox" name="med" value="med">MED
-      <input type="checkbox" name="vet" value="vet med">VET MED
-      <input type="checkbox" name="law" value="law">LAW
+      <h3>Select the Academic Career(s). Please check all that apply.</h3>
+      <label for="ugrd" class="pure-checkbox">
+        <input id="ugrd" type="checkbox" name="ugrd" value="ugrd"> UGRD
+      </label>
+      <label for="grad" class="pure-checkbox">
+        <input id="grad" type="checkbox" name="grad" value="grad"> GRAD
+      </label>
+      <label for="med" class="pure-checkbox">
+        <input id="med" type="checkbox" name="med" value="med"> MED
+      </label>
+      <label for="vetmed" class="pure-checkbox">
+        <input id="vetmed" type="checkbox" name="vet" value="vetmed"> VET MED
+      </label>
+      <label for="law" class="pure-checkbox">
+        <input id="law" type="checkbox" name="law" value="law"> LAW
+      </label>
       <br>
       <hr>
 
-      <p>Which type of access do you need?</p>
-      <input type="checkbox" name="student" value="student records">Student Records
-      <input type="checkbox" name="admissions" value="admissions">Admissions
-      <input type="checkbox" name="studentfin" value="student financials">Student Financials
-      <input type="checkbox" name="studentaid" value="student financial aid">Student Financial Aid
-      <input type="checkbox" name="reserved" value="reserved access">Reserved Access
+      <h3>Which type of access do you need?</h3>
+      <label for="studentrecords" class="pure-checkbox">
+      <input id="studentrecords" type="checkbox" name="student" value="studentrecords"> Student Records
+      </label>
+      <label for="admissions" class="pure-checkbox">
+      <input id="admissions" type="checkbox" name="admissions" value="admissions"> Admissions
+      </label>
+      <label for="studentfinancials" class="pure-checkbox">
+      <input id="studentfinancials" type="checkbox" name="studentfin" value="studentfinancials"> Student Financials
+      </label>
+      <label for="studentfinancialaid" class="pure-checkbox">
+      <input id="studentfinancialaid" type="checkbox" name="studentaid" value="studentfinancialaid"> Student Financial Aid
+      <label for="reservedaccess" class="pure-checkbox">
+      <input id="reservedaccess" type="checkbox" name="reserved" value="reservedaccess"> Reserved Access
       <hr>
 
-      <button class="button" type="submit" name="submit" >Submit</button>
-    </div>
+      <button class="pure-button pure-button-primary" type="submit" name="submit" id="firstformsubmit">Submit</button>
 
 
   </form>
+</div>
 </div>
 
 </body>

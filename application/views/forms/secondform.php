@@ -1,4 +1,4 @@
-
+<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/stylesheets/style.css?v=1">
    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -9,14 +9,16 @@
                 width:70%;
             }
 	    .first_col_width{
-		width:20%;	
+		width:20%;
          	}
             .right_two_cols{
                 text-align: center;
                 width: 40px;
             }
         </style>
+
  <div class="container table-width">
+   <div class="formcontainer">
           <?php  echo form_open('');  ?>
            <table class="table table-bordered table-hover">
 
@@ -147,3 +149,4 @@
 
    <?php  echo form_close(); ?>
         </div>
+      </div>
