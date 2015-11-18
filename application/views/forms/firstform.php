@@ -64,11 +64,11 @@
 
       <h3>Security Information</h3>
       <label for="new" class="pure-checkbox">
-      <input id="new" type="checkbox" name="new" value="new request"> New Request
+      <input id="new" type="radio" name="studentna" value="new request"> New Request
     </label>
 
     <label for="additional" class="pure-checkbox">
-      <input id="additional" type="checkbox" name="additional" value="additional request"> Additional Request
+      <input id="additional" type="radio" name="studentna" value="additional request"> Additional Request
     </label>
 
     <label id="studentworker" for="remember" class="pure-checkbox">
@@ -78,13 +78,13 @@
       <h4>Copy Security of a Staff Member (Choose Current or Former)</h4>
       <div class="pure-u-1-3">
       <label for="current" class="pure-checkbox">
-      <input id="current" type="checkbox" name="current" value="current"> Current
+      <input id="current" type="radio" name="currentformer" value="current"> Current
       </label>
     </div>
 
     <div class="pure-u-1-3">
     <label for="former" class="pure-checkbox">
-      <input id="former" type="checkbox" name="former" value="former"> Former
+      <input id="former" type="radio" name="currentformer" value="former"> Former
       <label for="remember" class="pure-checkbox">
     </div>
       <br>
