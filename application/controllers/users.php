@@ -16,7 +16,7 @@ class Users extends CI_Controller {
 
 
         if(session()) {
-            redirect("index.php/forms/firstform");
+            redirect("index.php/users/home");
         }
 
         $data['title'] = "login";
@@ -35,12 +35,11 @@ class Users extends CI_Controller {
                 }
             }
 
-            //$data = array("pawprint"=>$_POST['pawprint'], "password"=>$_POST['password'], "user_type"=>$_POST['type']);
             if($this->account->authentication($data)) {
                 session_start();
                 $_SESSION["pawprint"] = $data["pawprint"];
                 $_SESSION["user_type"] = $data["user_type"];
-                redirect("index.php/forms/firstform");
+                redirect("index.php/users/home");
             } else {
                 $data['auth_error'] = true;
                 $this->load->view('templates/header', $data);
@@ -110,8 +109,8 @@ class Users extends CI_Controller {
             if($this->account->registerEmployeeAccount($data)) {
                 session_start();
                 $_SESSION["pawprint"] = $data["pawprint"];
-                $_SESSION["user_type"] = $data["user_type"];
-                redirect("index.php/forms/firstform");
+                $_SESSION["user_type"] = 'emp';
+                redirect("index.php/users/home");
             } else {
                 //indicate that somthing wrong in the database. Maybe it's full..
                 $data['db_error'] = true;
@@ -129,32 +128,31 @@ class Users extends CI_Controller {
     }
 
     public function home($page="") {
-        if ( ! file_exists(APPPATH.'/views/users/home.php')) {
-            // Whoops, we don't have a page for that!
-            show_404();
-        }
-
-
         if(!session()) {
             redirect("index.php/users/login");
         }
 
-        $data['title'] = "Home - " .$_SESSION['type'];
-
-        switch($_SESSION['type']) {
-            case 'emp':
-                break;
-            case 'admin':
-                break;
-            case 'tech':
-                break;
-            default:
-                break;
-
+        if ( ! file_exists(APPPATH.'/views/users/'.$_SESSION['user_type'].'_home.php')) {
+            // Whoops, we don't have a page for that!
+            show_404();
         }
 
+        $data['title'] = "Home - " .$_SESSION['user_type'];
+
+        // switch($_SESSION['type']) {
+        //     case 'emp':
+        //         break;
+        //     case 'admin':
+        //         break;
+        //     case 'tech':
+        //         break;
+        //     default:
+        //         break;
+
+        // }
+
         $this->load->view('templates/header', $data);
-        $this->load->view('users/home', $data);
+        $this->load->view('users/'.$_SESSION['user_type'].'_home', $data);
         $this->load->view('templates/footer', $data);
     }
 
