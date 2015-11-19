@@ -116,20 +116,4 @@ html, body{
     font-size: 17px;
     font-weight: 300;
 }
-.CheckBox{
-    margin: 0 363px;
-    width: 500px;
-    text-align: center;
-    background: grey;
-    border: 3px solid black;
-}
-.headerx{
-    color: white;
-}
-.SubmitButton{
-    background: black;
-    color: white;
-    font-family: "roboto condensed", sans-serif;
-    vertical-align: middle;
-    text-align: center;
-}
+
