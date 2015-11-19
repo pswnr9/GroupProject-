@@ -133,3 +133,9 @@ html, body{
     vertical-align: middle;
     text-align: center;
 }
+.AddAdmin{
+    margin: 0 300px;
+    border: 3px solid black;
+    background: grey;
+    text-align: center;
+}
