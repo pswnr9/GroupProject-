@@ -19,18 +19,26 @@
         <div class="MainHeading">University of Missouri -            Columbia
         </div>
     </div>
-        <div class="LogInContainer">
-  <h2>View Submitted Forms</h2>
+    <div class="LogInContainer">
+  		<h2>View Submitted Forms</h2>
                                           
-  <div class="dropdown">
-    <button class="Submit" type="button" data-toggle="dropdown">Dropdown Example
-    <span class="caret"></span></button>
-    <ul class="dropdown-menu">
-      <li><a href="#">HTML</a></li>
-      <li><a href="#">CSS</a></li>
-      <li><a href="#">JavaScript</a></li>
-    </ul>
-  </div>
-</div>
+  	<div class="dropdown">
+    		<button class="Submit" type="button" data-toggle="dropdown">Dropdown Example
+    		<span class="caret"></span></button>
+    		<ul class="dropdown-menu">
+			<li><a href="#">HTML</a></li>
+      			<li><a href="#">CSS</a></li>
+      			<li><a href="#">JavaScript</a></li>
+    		</ul>
+  	</div>
+    </div>
+   <div class="CheckBox">
+        <h class="headerx">Accept Submitted Forms</h>
+    <form action="">
+        <input type="checkbox" name="x" value="1">Name<br>
+        <input type="checkbox" name="x" value="2">Name2
+    </form>
+        <button class="SubmitButton" type="submit" name="submit" >Accept</button>
+   </div> 
 </body>
 </html>
