@@ -3,7 +3,6 @@ class Users extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model("account");
-
         $this->load->helper('url');
         $this->load->helper('session');
     }
@@ -140,7 +139,19 @@ class Users extends CI_Controller {
             redirect("index.php/users/login");
         }
 
-        $data['title'] = "home"; // Capitalize the first letter
+        $data['title'] = "Home - " .$_SESSION['type'];
+
+        switch($_SESSION['type']) {
+            case 'emp':
+                break;
+            case 'admin':
+                break;
+            case 'tech':
+                break;
+            default:
+                break;
+
+        }
 
         $this->load->view('templates/header', $data);
         $this->load->view('users/home', $data);

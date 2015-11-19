@@ -76,6 +76,10 @@ CREATE TABLE `prepare_form` (
   `pawprint` varchar(10) REFERENCES emp_user_info(pawprint),
   `request_status` int(1) NOT NULL,
   `if_cur_staff` int(1) NOT NULL,
+  `ref_name` varchar(30) NOT NULL,
+  `ref_pos` varchar(30) NOT NULL,
+  `ref_pawprint` varchar(10) NOT NULL,
+  `ref_empiid` int(15) NOT NULL,
   `ferpa_score` int(11) NOT NULL,
   `access_type` int(1) NOT NULL,
   `academic_career` int NOT NULL
