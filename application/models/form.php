@@ -3,7 +3,7 @@ class Form extends CI_Model{
     public function __construct() {
         $config['hostname'] = 'localhost';
         $config['username'] = 'root';
-        $config['password'] = 'root';
+        $config['password'] = '';
         $config['database'] = 'TeamWt';
         $config['dbdriver'] = 'mysqli';
         $config['dbprefix'] = '';
@@ -37,17 +37,18 @@ class Form extends CI_Model{
      */
     public function getAutoFill($pawprint){
         $cleanPawprint = htmlspecialchars($pawprint);
-        $query = $this->db->select('*')->from('emp_user_info')->where('pawprint', $cleanPawprint);
+        $this->db->select('*')->from('emp_user_info')->where('pawprint', $cleanPawprint);
+        $query = $this->db->get();
         $row = $query->first_row();
 
         $array = array(
-            "username" => $row['username'],
-            "title" => $row['title'],
-            "organization" => $row['organization'],
-            "pawprint" => $row['pawprint'],
-            "empiid" => $row['empiid'],
-            "address" => $row['address'],
-            "phone_num" => $row['phone_num'],
+            "username" => $row->username,
+            "title" => $row->title,
+            "organization" => $row->organization,
+            "pawprint" => $row->pawprint,
+            "empiid" => $row->empiid,
+            "address" => $row->address,
+            "phone_num" => $row->phone_num,
         );
 
         return $array;

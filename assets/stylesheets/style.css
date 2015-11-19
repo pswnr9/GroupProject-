@@ -101,7 +101,7 @@ html, body{
     background:url(../images/Tiger.png)no-repeat;
     position: absolute;
     top:0px;
-    z-index: 0;
+    z-index: -10000;
 }
 .Submit{
     background:black;
