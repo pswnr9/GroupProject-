@@ -1,36 +1,28 @@
 <html>
 <head>
 <title>Security Form</title>
-<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/stylesheets/style.css">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/stylesheets/style.css?v=1">
 <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-  form {
-    background-color: white;
-    border-style: solid;
-  }
-
-  #Smallheader {
-    text-align: center;
-  }
-
-</style>
 </head>
 <body>
 
-  <div id="Smallheader">
+  <div class="formcontainer">
+  <div class="alignment">
+  <div class="smallheader">
   <h2>myZou Security Request Form</h2>
   <h2>University of Missouri-Columbia</h2>
 
   <hr>
 
   <h3>Instead of sending request directly to Student Information Systems 130 Jesse Hall, simply submit this form.</h3>
+  <hr>
   </div>
 
- <div>
+
   <form name="form" action="<?= $_SERVER['PHP_SELF'] ?>" method="POST" class="pure-form pure-form-stacked">
     <h3>Enter your information.</h3>
-    <div id="Security">
+
     <div class="pure-g">
 
     <div class="pure-u-1-3">
@@ -77,22 +69,20 @@
       <input id="additional" type="radio" name="request_status" value="0"> Additional Request
     </label>
 
-
-
     <label id="studentworker" for="remember" class="pure-checkbox">
       <input id="studentworker" type="checkbox" name="studentworker" value="student worker"> Student Worker
     </label>
 
       <h4>Copy Security of a Staff Member (Choose Current or Former)</h4>
-      <div class="pure-u-1-3">
+      <div class="pure-u-1-3" c>
       <label for="current" class="pure-checkbox">
-      <input id="current" type="checkbox" name="current" value="current"> Current
+      <input id="current" type="radio" name="currentformer" value="current"> Current
       </label>
     </div>
 
     <div class="pure-u-1-3">
     <label for="former" class="pure-checkbox">
-      <input id="former" type="checkbox" name="former" value="former"> Former
+      <input id="former" type="radio" name="currentformer" value="former"> Former
       <label for="remember" class="pure-checkbox">
     </div>
       <br>
@@ -129,12 +119,22 @@
     </div>
       <hr>
 
-      <p>Select the Academic Career(s). Please check all that apply.<p>
-      <input type="checkbox" name="ugrd" value="ugrd">UGRD
-      <input type="checkbox" name="grad" value="grad">GRAD
-      <input type="checkbox" name="med" value="med">MED
-      <input type="checkbox" name="vet" value="vet med">VET MED
-      <input type="checkbox" name="law" value="law">LAW
+      <h3>Select the Academic Career(s). Please check all that apply.</h3>
+      <label for="ugrd" class="pure-checkbox">
+        <input id="ugrd" type="checkbox" name="ugrd" value="ugrd"> UGRD
+      </label>
+      <label for="grad" class="pure-checkbox">
+        <input id="grad" type="checkbox" name="grad" value="grad"> GRAD
+      </label>
+      <label for="med" class="pure-checkbox">
+        <input id="med" type="checkbox" name="med" value="med"> MED
+      </label>
+      <label for="vetmed" class="pure-checkbox">
+        <input id="vetmed" type="checkbox" name="vet" value="vetmed"> VET MED
+      </label>
+      <label for="law" class="pure-checkbox">
+        <input id="law" type="checkbox" name="law" value="law"> LAW
+      </label>
       <br>
       <hr>
 
@@ -144,13 +144,14 @@
       <input type="radio" name="access_type" value="4">Student Financials
       <input type="radio" name="access_type" value="5">Student Financial Aid
       <input type="radio" name="access_type" value="6">Reserved Access
+
       <hr>
 
-      <button class="button" type="submit" name="submit" >Submit</button>
-    </div>
+      <button class="pure-button pure-button-primary" type="submit" name="submit" >Submit</button>
 
 
   </form>
+</div>
 </div>
 <div class="err-msg" style="text-align: center;">e: <?php if(isset($format_error)) echo "format not correct " . $format_error; ?></div>
 </body>

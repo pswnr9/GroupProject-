@@ -18,10 +18,10 @@ class Forms extends CI_Controller {
             // Whoops, we don't have a page for that!
             show_404();
         }
-
+        /*
         if(!session()) {
             redirect("index.php/users/login");
-        }
+        }*/
 
         $data['title'] = "Form - ". $page;
 
