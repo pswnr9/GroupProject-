@@ -14,7 +14,6 @@
                 return false;
             }
         }
-
         return true;
 	}
 
@@ -146,8 +145,6 @@
 
 
 
-
-
 	//preproces forms
 	function preprocess_1($data) {
 		if(!isset($data["student_worker"])) {
@@ -157,12 +154,8 @@
         if(!isset($data['ac'])) {
         	$data['academic_career'] = 0;
         } else {
-        	$ac = 0;
-        	foreach($data['ac'] as $idx => $career) {
-                $ac += pow(10, $career);
-            }
+        	$data["academic_career"] = convert_cbs($data['ac']);
         	unset($data['ac']);
-        	$data["academic_career"] = $ac;
         }
 
         $data['pawprint'] = $_SESSION['pawprint'];
@@ -220,6 +213,24 @@
 				return false;
 				break;
 		}
+	}
+
+	function convert_cbs($cb_arr) {
+		$result = 0;
+		foreach ($cb_arr as $cb) {
+			$result += pow(10, $cb);
+		}
+		return $result;
+	}
+
+	function convert_back_cbs($cb_val) {
+		$cb_str = (string)$cb_val;
+		$len = str_len($cb_arr);
+		while($len <= 5) {
+			$cb_str .= '0';
+			$len++;
+		}
+		return str_split($cb_str);
 	}
 
 ?>

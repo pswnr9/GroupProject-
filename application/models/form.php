@@ -72,7 +72,6 @@ class Form extends CI_Model{
                 if($key != 'pawprint') {
                     unset($formInfo[$key]);
                 }
-
             }
         }
 
@@ -85,17 +84,37 @@ class Form extends CI_Model{
         $this->db->update('emp_user_info', $eu_info);
 
         //select form by pawprint, not exists, insert, else updata
-        $this->db->select('*')->from('prepare_form')->where('pawprint', $pawprint);
-        $query = $this->db->get();
-        if ( $query->num_rows() > 0 ) {
-            $this->db->where('pawprint', $pawprint);
-            $this->db->update('prepare_form', $formInfo);
-        } else {
-            $this->db->insert('prepare_form', $formInfo);
-        }
+       // $this->db->select('*')->from('prepare_form')->where('pawprint', $pawprint);
+        //$query = $this->db->get();
+        // if ( $query->num_rows() > 0 ) {
+        //     $this->db->where('pawprint', $pawprint);
+        //     $this->db->update('prepare_form', $formInfo);
+        // } else {
+        $this->db->insert('prepare_form', $formInfo);
+        // }
 
 
     }
+
+    public function updateUserInfo($user_info) {
+        foreach ($formInfo as $key => $value) {
+            $formInfo[$key] = htmlspecialchars($value);
+        }
+
+        $pawprint = $user_info['pawprint'];
+        unset($user_info['pawprint']);
+        $this->db->where('pawprint', $pawprint);
+        $this->db->update('emp_user_info', $user_info);
+    }
+
+
+    // public function insertPrepareForm($formInfom){
+    //     foreach ($formInfo as $key => $value) {
+    //         $formInfo[$key] = htmlspecialchars($value);
+    //     }
+
+    //     $this->db->insert('prepare_form', $formInfo);
+    // }
 
 
     public function insertStudentRecordsAccess($formInfo){
