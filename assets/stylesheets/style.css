@@ -125,7 +125,7 @@ html, body{
     background:url(../images/Tiger.png)no-repeat;
     position: absolute;
     top:0px;
-    z-index: 0;
+    z-index: -10000;
 }
 .Submit{
     background:black;
@@ -139,4 +139,27 @@ html, body{
     border: none;
     font-size: 17px;
     font-weight: 300;
+}
+.CheckBox{
+    margin: 0 363px;
+    width: 500px;
+    text-align: center;
+    background: grey;
+    border: 3px solid black;
+}
+.headerx{
+    color: white;
+}
+.SubmitButton{
+    background: black;
+    color: white;
+    font-family: "roboto condensed", sans-serif;
+    vertical-align: middle;
+    text-align: center;
+}
+.AddAdmin{
+    margin: 0 300px;
+    border: 3px solid black;
+    background: grey;
+    text-align: center;
 }

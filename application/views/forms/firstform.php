@@ -27,50 +27,58 @@
 
     <div class="pure-u-1-3">
       <label for="username">Username</label>
-      <input type="text" name="username" id="username" class="pure-u-23-24">
+      <input type="text" name="username" id="username" class="pure-u-23-24" value="<?php echo isset($username) ? $username : ""; ?>">
     </div>
 
       <div class="pure-u-1-3">
       <label for="title">Title</title>
-      <input type="text" name="title"  id="title" class="pure-u-23-24">
+      <input type="text" name="title"  id="title" class="pure-u-23-24" value="<?php echo isset($title) ? $title : ""; ?>">
     </div>
 
     <div class="pure-u-1-3">
       <label for="department">Department</label>
-      <input type="text" name="department" id="department" class="pure-u-23-24">
+      <input type="text" name="department" id="department" class="pure-u-23-24" value="<?php echo isset($organization) ? $organization : ""; ?>">
     </div>
 
     <div class="pure-u-1-3">
       <label for="pawprint">Pawprint</label>
-      <input type="text" name="pawprint" id="pawprint"  class="pure-u-23-24">
+      <input type="text" name="pawprint" id="pawprint"  class="pure-u-23-24" value="<?php echo $_SESSION['pawprint']; ?>">
     </div>
 
       <div class="pure-u-1-3">
       <label for="emplid">EmplID</label>
-      <input type="text" name="emplid" id="emplid" class="pure-u-23-24">
+      <input type="text" name="emplid" id="emplid" class="pure-u-23-24" value="<?php echo isset($empiid) ? $empiid : ""; ?>">
     </div>
 
       <div class="pure-u-1-3">
       <label for="campus">Campus Address</label>
-      <input type="text" name="campus" id="campus"  class="pure-u-23-24">
+      <input type="text" name="campus" id="campus"  class="pure-u-23-24" value="<?php echo isset($address) ? $address : ""; ?>">
     </div>
 
 
       <div class="pure-u-1-3">
       <label for="number">Phone Number</label>
-      <input type="text" name="number" id="number" class="pure-u-23-24">
+      <input type="text" name="number" id="number" class="pure-u-23-24" value="<?php echo isset($phone_num) ? $phone_num : ""; ?>">
     </div>
     </div>
       <hr>
 
       <h3>Security Information</h3>
       <label for="new" class="pure-checkbox">
+<<<<<<< HEAD
       <input id="new" type="radio" name="studentna" value="new request"> New Request
     </label>
 
     <label for="additional" class="pure-checkbox">
       <input id="additional" type="radio" name="studentna" value="additional request"> Additional Request
     </label>
+=======
+      <input id="new" type="radio" name="request_status" value="1"> New Request
+      <input id="additional" type="radio" name="request_status" value="0"> Additional Request
+    </label>
+
+
+>>>>>>> master
 
     <label id="studentworker" for="remember" class="pure-checkbox">
       <input id="studentworker" type="checkbox" name="studentworker" value="student worker"> Student Worker
@@ -141,6 +149,7 @@
       <br>
       <hr>
 
+<<<<<<< HEAD
       <h3>Which type of access do you need?</h3>
       <label for="studentrecords" class="pure-checkbox">
       <input id="studentrecords" type="checkbox" name="student" value="studentrecords"> Student Records
@@ -156,6 +165,14 @@
       <label for="reservedaccess" class="pure-checkbox">
       <input id="reservedaccess" type="checkbox" name="reserved" value="reservedaccess"> Reserved Access
     </label>
+=======
+      <p>Which type of access do you need?</p>
+      <input type="radio" name="access_type" value="2">Student Records
+      <input type="radio" name="access_type" value="3">Admissions
+      <input type="radio" name="access_type" value="4">Student Financials
+      <input type="radio" name="access_type" value="5">Student Financial Aid
+      <input type="radio" name="access_type" value="6">Reserved Access
+>>>>>>> master
       <hr>
 
       <button class="pure-button pure-button-primary" type="submit" name="submit" >Submit</button>
@@ -163,7 +180,11 @@
 
   </form>
 </div>
+<<<<<<< HEAD
 </div>
 
+=======
+<div class="err-msg" style="text-align: center;">e: <?php if(isset($format_error)) echo "format not correct " . $format_error; ?></div>
+>>>>>>> master
 </body>
 </html>

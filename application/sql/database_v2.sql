@@ -72,10 +72,15 @@ CREATE TABLE `tech_user_info` (
 --
 
 CREATE TABLE `prepare_form` (
-  `form_id` varchar(55) PRIMARY KEY NOT NULL,
+  `form_id` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `pawprint` varchar(10) REFERENCES emp_user_info(pawprint),
   `request_status` int(1) NOT NULL,
+  `student_worker` int(1) NOT NULL,
   `if_cur_staff` int(1) NOT NULL,
+  `ref_name` varchar(30) NOT NULL,
+  `ref_pos` varchar(30) NOT NULL,
+  `ref_pawprint` varchar(10) NOT NULL,
+  `ref_empiid` int(15) NOT NULL,
   `ferpa_score` int(11) NOT NULL,
   `access_type` int(1) NOT NULL,
   `academic_career` int NOT NULL
@@ -88,7 +93,7 @@ CREATE TABLE `prepare_form` (
 --
 
 CREATE TABLE `form_info` (
-  `form_id` varchar(55) PRIMARY KEY NOT NULL,
+  `form_id` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `pawprint` varchar(10) REFERENCES emp_user_info(pawprint),
   `app_id` int NOT NULL,
   `create_date` date,
@@ -104,7 +109,7 @@ CREATE TABLE `form_info` (
 --
 
 CREATE TABLE `admission_access` (
-  `form_id` varchar(55) REFERENCES form_info(form_id),
+  `form_id` int REFERENCES form_info(form_id),
   PRIMARY KEY (form_id),
   `act` tinyint(1) DEFAULT NULL,
   `lelts` tinyint(1) DEFAULT NULL,
@@ -131,7 +136,7 @@ CREATE TABLE `admission_access` (
 --
 
 CREATE TABLE `financial_access` (
-  `form_id` varchar(55) REFERENCES form_info(form_id),
+  `form_id` int REFERENCES form_info(form_id),
   PRIMARY KEY (`form_id`),
   `general_inquiry` tinyint(1) NOT NULL,
   `cash_group_post` tinyint(1) NOT NULL
@@ -144,7 +149,7 @@ CREATE TABLE `financial_access` (
 --
 
 CREATE TABLE `financial_aid_access` (
-  `form_id` varchar(55) REFERENCES form_info(form_id),
+  `form_id` int REFERENCES form_info(form_id),
   PRIMARY KEY (`form_id`),
   `fa_cash` tinyint(1) DEFAULT NULL,
   `fa_non_financial_aid_stuff` tinyint(1) DEFAULT NULL
@@ -157,7 +162,7 @@ CREATE TABLE `financial_aid_access` (
 --
 
 CREATE TABLE `reserved_access` (
-  `form_id` varchar(55) REFERENCES form_info(form_id),
+  `form_id` int REFERENCES form_info(form_id),
   PRIMARY KEY (`form_id`),
   `immunization_view` tinyint(1) DEFAULT NULL,
   `transfer_credit_admission` tinyint(1) DEFAULT NULL,
@@ -175,7 +180,7 @@ CREATE TABLE `reserved_access` (
 --
 
 CREATE TABLE `student_record_access` (
-  `form_id` varchar(55) REFERENCES form_info(form_id),
+  `form_id` int REFERENCES form_info(form_id),
   PRIMARY KEY (`form_id`),
   `basic_inquiry` tinyint(1) NOT NULL,
   `advanced_inquiry` tinyint(1) NOT NULL,

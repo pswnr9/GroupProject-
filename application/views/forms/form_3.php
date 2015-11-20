@@ -14,7 +14,17 @@
   <hr>
   </div>
 
+<<<<<<< HEAD:application/views/forms/thirdform.php
   <form name="form" action="form.php" method="POST" class="pure-form pure-form-stacked">
+=======
+
+  <a href="#menu" id="menuLink" class="menu-link">
+      <!-- Hamburger icon -->
+      <span></span>
+  </a>
+
+  <form name="form" action="<?= $_SERVER['PHP_SELF'] ?>" method="POST">
+>>>>>>> master:application/views/forms/form_3.php
     <div id="Security">
 
       <h3>Select the Academic Career(s). Please check all that apply.</h3>
@@ -73,7 +83,11 @@
 
 
   </form>
+<<<<<<< HEAD:application/views/forms/thirdform.php
 </div>
 </div>
+=======
+  <div class="err-msg" style="text-align: center;">e: <?php if(isset($format_error)) echo "format not correct " . $format_error; ?></div>
+>>>>>>> master:application/views/forms/form_3.php
 </body>
 </html>
