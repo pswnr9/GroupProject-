@@ -5,9 +5,9 @@ class Account extends CI_model {
     public function __construct() {
         $config['hostname'] = 'localhost';
         $config['username'] = 'root';
-        $config['password'] = '';
-        $config['database'] = 'TeamWt';
-        $config['dbdriver'] = 'mysqli';
+        $config['password'] = 'root';
+        $config['database'] = 'Team';
+        $config['dbdriver'] = 'mysql';
         $config['dbprefix'] = '';
         $config['pconnect'] = FALSE;
         $config['db_debug'] = TRUE;
