@@ -83,7 +83,7 @@ class Users extends CI_Controller {
 
             unset($data["password_retype"]);
             if($this->account->registerEmployeeAccount($data)) {
-                session_start();
+            //    session_start();
                 $_SESSION["pawprint"] = $data["pawprint"];
                 $_SESSION["user_type"] = 'emp';
                 redirect("index.php/users/home");

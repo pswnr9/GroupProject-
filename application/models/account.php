@@ -6,8 +6,8 @@ class Account extends CI_model {
         $config['hostname'] = 'localhost';
         $config['username'] = 'root';
         $config['password'] = 'root';
-        $config['database'] = 'TeamWt';
-        $config['dbdriver'] = 'mysqli';
+        $config['database'] = 'Team';
+        $config['dbdriver'] = 'mysql';
         $config['dbprefix'] = '';
         $config['pconnect'] = FALSE;
         $config['db_debug'] = TRUE;
