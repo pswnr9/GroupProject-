@@ -15,7 +15,7 @@
       <span></span>
   </a>
 
-  <form name="form" action="form.php" method="POST">
+  <form name="form" action="<?= $_SERVER['PHP_SELF'] ?>" method="POST">
     <div id="Security">
 
       <p>Select the Academic Career(s). Please check all that apply.<p>
@@ -44,6 +44,6 @@
 
 
   </form>
-
+  <div class="err-msg" style="text-align: center;">e: <?php if(isset($format_error)) echo "format not correct " . $format_error; ?></div>
 </body>
 </html>

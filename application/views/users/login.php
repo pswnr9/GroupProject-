@@ -30,7 +30,7 @@
 </head>
 
 <body>
-    
+
     <div class="ContentContainer">
         <form class="LogInContainer" method="POST" action="<?= $_SERVER['PHP_SELF'] ?>">
             <h1 class="LogInHeading">Login</h1>
@@ -50,7 +50,7 @@
                 <div class="TextBoxLabel">
                     type
                 </div>
-                <span>employee</span><input type="radio" name="user_type" class="Input" checked="checked" value="employee">
+                <span>employee</span><input type="radio" name="user_type" class="Input" checked="checked" value="emp">
                 <span>admin</span><input type="radio" name="user_type" class="Input" value="admin">
                 <span>tech</span><input type="radio" name="user_type" class="Input" value="tech">
             </div>

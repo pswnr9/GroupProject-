@@ -10,167 +10,83 @@ class Forms extends CI_Controller {
         $this->load->helper("session");
         $this->load->helper("checking");
     }
-    //Basic functions
-    public function firstform($page = '') {
 
-        if ( !file_exists(APPPATH.'/views/forms/firstform.php') || $page != '') {
+
+
+    public function f($page ="1") {
+        if ( !file_exists(APPPATH.'/views/forms/form_' . $page . '.php') ) {
             // Whoops, we don't have a page for that!
             show_404();
         }
-
-
 
         if(!session()) {
             redirect("index.php/users/login");
         }
 
+        $data['title'] = "Form - ". $page;
 
-        $data['title'] = "firstform";
-
-        //query from database and pull all the information about the user and then auto populate
         if($_POST) {
-            //should not do this....just because the model dosent work and I dont want the app to be crashed
-            session_destroy();
-            redirect("index.php/users/login");
-            foreach ($_POST as $key => $value) {
-                $data[$key] = htmlspecialchars($value);
+            // $data = $_POST;
+            // $this->load->view("forms/test", $data);
+            // return;
+            $data = preprocess($page, $_POST);
 
-                if(empty($data[$key])) {
-                    $data = $_POST;
-                    $data['format_error'] = true;
-                    $this->load->view('templates/header', $data);
-                    $this->load->view('forms/firstform', $data);
-                    $this->load->view('templates/footer', $data);
-                    return;
+            $check_result = check_form($page, $data);
+            $data = escapedata($data);
+
+            if($check_result["passed"]) {
+
+                switch ($page) {
+
+                    case '1':
+                        $this->form->insertPrepareForm($data);
+                        isset($data["access_type"]) ? redirect("index.php/forms/f/".$data["access_type"]) : redirect("index.php/forms/f/1");
+                        break;
+
+                    case '2':
+                        $this->form->insertStudentRecordsAccess($data);
+                        break;
+
+                    case '3':
+                        $this->form->insertAdmissionsAccess($data);
+                        break;
+
+                    case '4':
+                        $this->form->insertStudentFinancialsAccess($data);
+                        break;
+
+                    case '5':
+                        $this->form->insertStudentFinancialAidAccess($data);
+                        break;
+
+                    case '6':
+                        $this->form->insertReservedAccess($data);
+                        break;
+
+                    default:
+                        # code...
+                        break;
                 }
-            }
 
-            if(!preg_match("/^[0-9]{3}-[0-9]{4}-[0-9]{4}$/", $data["phone_num"])) {
-                // $phone is invalid
-                $data['format_error'] = true;
-                $this->load->view('templates/header', $data);
-                $this->load->view('forms/firstform', $data);
-                $this->load->view('templates/footer', $data);
+                redirect("index.php/users/home");
+
+            } else {
+                $data = $_POST;
+                $data['format_error'] = $check_result['error'];
+                $this->load->view("templates/header", $data);
+                $this->load->view("forms/form_" . $page, $data);
+                $this->load->view("templates/footer", $data);
                 return;
             }
-
-            $this->form->insertStudentRecordsAccess($data);
-
-            redirect("index.php/forms/"+$data["access_type"]);
-
         } else {
-            //$data = $this->form->getAutoFill($_SESSION['pawprint']);
+            if($page == '1') {
+                $data = $this->form->getAutoFill($_SESSION['pawprint']);
+            }
+            $data['title'] = ucfirst($page); // Capitalize the first letter
             $this->load->view("templates/header", $data);
-            $this->load->view("forms/firstform", $data);
+            $this->load->view("forms/form_" . $page, $data);
             $this->load->view("templates/footer", $data);
         }
-
-    }
-
-    public function secondform($page = '') {
-
-        if ( ! file_exists(APPPATH.'/views/forms/secondform.php') || $page != '') {
-            // Whoops, we don't have a page for that!
-            show_404();
-        }
-
-
-        if(!session()) {
-            //redirect("index.php/users/login");
-        }
-
-
-
-
-        $data['title'] = ucfirst($page); // Capitalize the first letter
-        $this->load->view("templates/header", $data);
-        $this->load->view("forms/secondform", $data);
-        $this->load->view("templates/footer", $data);
-
-    }
-
-    public function thirdform($page = '') {
-
-        if ( ! file_exists(APPPATH.'/views/forms/thirdform.php') || $page != '') {
-            // Whoops, we don't have a page for that!
-            show_404();
-        }
-
-        if(!session()) {
-            //redirect("index.php/users/login");
-        }
-
-
-
-
-        $data['title'] = ucfirst($page); // Capitalize the first letter
-        $this->load->view("templates/header", $data);
-        $this->load->view("forms/thirdform", $data);
-        $this->load->view("templates/footer", $data);
-
-    }
-
-    public function fourthform($page = '') {
-
-        if ( ! file_exists(APPPATH.'/views/forms/fourthform.php') || $page != '') {
-            // Whoops, we don't have a page for that!
-            show_404();
-        }
-
-        if(!session()) {
-            //redirect("index.php/users/login");
-        }
-
-
-
-
-        $data['title'] = ucfirst($page); // Capitalize the first letter
-        $this->load->view("templates/header", $data);
-        $this->load->view("forms/fourthform", $data);
-        $this->load->view("templates/footer", $data);
-
-    }
-
-    public function fifthform($page = '') {
-
-        if ( ! file_exists(APPPATH.'/views/forms/fifthform.php') || $page != '') {
-            // Whoops, we don't have a page for that!
-            show_404();
-        }
-
-        if(!session()) {
-            //redirect("index.php/users/login");
-        }
-
-
-
-
-        $data['title'] = ucfirst($page); // Capitalize the first letter
-        $this->load->view("templates/header", $data);
-        $this->load->view("forms/fifthform", $data);
-        $this->load->view("templates/footer", $data);
-
-    }
-
-    public function sixthform($page = '') {
-
-        if ( ! file_exists(APPPATH.'/views/forms/sixthform.php') || $page != '') {
-            // Whoops, we don't have a page for that!
-            show_404();
-        }
-
-        if(!session()) {
-            //redirect("index.php/users/login");
-        }
-
-
-
-
-        $data['title'] = ucfirst($page); // Capitalize the first letter
-        $this->load->view("templates/header", $data);
-        $this->load->view("forms/sixthform", $data);
-        $this->load->view("templates/footer", $data);
-
     }
 
 
