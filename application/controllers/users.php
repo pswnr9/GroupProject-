@@ -5,6 +5,7 @@ class Users extends CI_Controller {
         $this->load->model("account");
         $this->load->helper('url');
         $this->load->helper('session');
+        $this->load->helper('checking');
     }
 
     //Basic functions
@@ -14,26 +15,25 @@ class Users extends CI_Controller {
             show_404();
         }
 
-
+        $data = array();
         if(session()) {
             redirect("index.php/users/home");
         }
 
-        $data['title'] = "login";
-
         if($_POST) {
-            foreach ($_POST as $key => $value) {
-                $data[$key] = htmlspecialchars($value);
+            $data = escapedata($_POST);
 
-                if(empty($data[$key])) {
-                    $data = $_POST;
-                    $data['format_error'] = true;
-                    $this->load->view('templates/header', $data);
-                    $this->load->view('users/login', $data);
-                    $this->load->view('templates/footer', $data);
-                    return;
-                }
+            $check_result = check_login($data);
+
+            if(!$check_result["passed"]) {
+                $data = $_POST;
+                $data['format_error'] = $check_result["error"];
+                $this->load->view('templates/header', $data);
+                $this->load->view('users/login', $data);
+                $this->load->view('templates/footer', $data);
+                return;
             }
+
 
             if($this->account->authentication($data)) {
                 session_start();
@@ -64,46 +64,22 @@ class Users extends CI_Controller {
             redirect("index.php/forms/firstform");
         }
 
-        $data['title'] = "register";
+         $data = array();
 
         if($_POST) {
-            foreach ($_POST as $key => $value) {
-                $data[$key] = htmlspecialchars($value);
+            $data = escapedata($_POST);
 
-                if(empty($data[$key])) {
-                    $data = $_POST;
-                    $data['format_error'] = "empty";
-                    $this->load->view('templates/header', $data);
-                    $this->load->view('users/register', $data);
-                    $this->load->view('templates/footer', $data);
-                    return;
-                }
-            }
+            $check_result = check_register($data);
 
-            if(preg_match("/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/", $data["phone_num"]) != 1) {
-                // $phone is invalid
-                $data['format_error'] = "phone";
+            if(!$check_result["passed"]) {
+                $data = $_POST;
+                $data['format_error'] = $check_result["error"];
                 $this->load->view('templates/header', $data);
                 $this->load->view('users/register', $data);
                 $this->load->view('templates/footer', $data);
                 return;
             }
 
-            if($data["empiid"] != (integer)$data["empiid"]) {
-                $data['format_error'] = "empiid";
-                $this->load->view('templates/header', $data);
-                $this->load->view('users/register', $data);
-                $this->load->view('templates/footer', $data);
-                return;
-            }
-
-            if($data["password"] != $data["password_retype"]) {
-                $data['format_error'] = "pss";
-                $this->load->view('templates/header', $data);
-                $this->load->view('users/register', $data);
-                $this->load->view('templates/footer', $data);
-                return;
-            }
 
             unset($data["password_retype"]);
             if($this->account->registerEmployeeAccount($data)) {
@@ -127,6 +103,15 @@ class Users extends CI_Controller {
 
     }
 
+    public function logout($page="") {
+        if(session()) {
+            unset($_SESSION['pawprint']);
+            unset($_SESSION['user_type']);
+            session_destroy();
+        }
+        redirect("index.php/users/login");
+    }
+
     public function home($page="") {
         if(!session()) {
             redirect("index.php/users/login");
@@ -139,21 +124,8 @@ class Users extends CI_Controller {
 
         $data['title'] = "Home - " .$_SESSION['user_type'];
 
-        // switch($_SESSION['type']) {
-        //     case 'emp':
-        //         break;
-        //     case 'admin':
-        //         break;
-        //     case 'tech':
-        //         break;
-        //     default:
-        //         break;
 
-        // }
-
-        $this->load->view('templates/header', $data);
         $this->load->view('users/'.$_SESSION['user_type'].'_home', $data);
-        $this->load->view('templates/footer', $data);
     }
 
 

@@ -59,13 +59,44 @@ class Form extends CI_Model{
      * The data is passed to the forms via an associative array
      */
 
-    public function createForm($formInfo){
+    public function insertPrepareForm($formInfo){
         foreach ($formInfo as $key => $value) {
             $formInfo[$key] = htmlspecialchars($value);
         }
 
-        $this->db->insert('form_info', $formInfo);
+
+        $eu_info = array('pawprint'=> '', 'username' => '', 'empiid' => '', 'title' => '', 'organization' => '', 'address' => '', 'phone_num' => '');
+        foreach ($formInfo as $key => $value) {
+            if(in_array($key, array_keys($eu_info))) {
+                $eu_info[$key] = $value;
+                if($key != 'pawprint') {
+                    unset($formInfo[$key]);
+                }
+
+            }
+        }
+
+        $pawprint = $eu_info['pawprint'];
+        unset($eu_info['pawprint']);
+
+
+
+        $this->db->where('pawprint', $pawprint);
+        $this->db->update('emp_user_info', $eu_info);
+
+        //select form by pawprint, not exists, insert, else updata
+        $this->db->select('*')->from('prepare_form')->where('pawprint', $pawprint);
+        $query = $this->db->get();
+        if ( $query->num_rows() > 0 ) {
+            $this->db->where('pawprint', $pawprint);
+            $this->db->update('prepare_form', $formInfo);
+        } else {
+            $this->db->insert('prepare_form', $formInfo);
+        }
+
+
     }
+
 
     public function insertStudentRecordsAccess($formInfo){
         foreach ($formInfo as $key => $value) {

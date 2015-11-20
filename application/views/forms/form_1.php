@@ -45,77 +45,74 @@
 
     <div class="pure-u-1-3">
       <label for="department">Department</label>
-      <input type="text" name="department" id="department" class="pure-u-23-24" value="<?php echo isset($organization) ? $organization : ""; ?>">
+      <input type="text" name="organization" id="department" class="pure-u-23-24" value="<?php echo isset($organization) ? $organization : ""; ?>">
     </div>
 
     <div class="pure-u-1-3">
       <label for="pawprint">Pawprint</label>
-      <input type="text" name="pawprint" id="pawprint"  class="pure-u-23-24" value="<?php echo $_SESSION['pawprint']; ?>">
+      <input type="text" name="pawprint" id="pawprint"  class="pure-u-23-24" value="<?php echo $_SESSION['pawprint']; ?>" disabled>
     </div>
 
       <div class="pure-u-1-3">
       <label for="emplid">EmplID</label>
-      <input type="text" name="emplid" id="emplid" class="pure-u-23-24" value="<?php echo isset($empiid) ? $empiid : ""; ?>">
+      <input type="number" name="empiid" id="emplid" class="pure-u-23-24" value="<?php echo isset($empiid) ? $empiid : ""; ?>">
     </div>
 
       <div class="pure-u-1-3">
       <label for="campus">Campus Address</label>
-      <input type="text" name="campus" id="campus"  class="pure-u-23-24" value="<?php echo isset($address) ? $address : ""; ?>">
+      <input type="text" name="address" id="campus"  class="pure-u-23-24" value="<?php echo isset($address) ? $address : ""; ?>">
     </div>
 
 
       <div class="pure-u-1-3">
       <label for="number">Phone Number</label>
-      <input type="text" name="number" id="number" class="pure-u-23-24" value="<?php echo isset($phone_num) ? $phone_num : ""; ?>">
+      <input type="text" name="phone_num" id="number" class="pure-u-23-24" value="<?php echo isset($phone_num) ? $phone_num : ""; ?>">
     </div>
     </div>
       <hr>
 
       <h3>Security Information</h3>
       <label for="new" class="pure-checkbox">
-      <input id="new" type="radio" name="request_status" value="1"> New Request
-      <input id="additional" type="radio" name="request_status" value="0"> Additional Request
+      <input id="new" type="radio" name="request_status" value="0" checked="checked"> New Request
+      <input id="additional" type="radio" name="request_status" value="1"> Additional Request
     </label>
 
 
-
     <label id="studentworker" for="remember" class="pure-checkbox">
-      <input id="studentworker" type="checkbox" name="studentworker" value="student worker"> Student Worker
+      <input id="studentworker" type="checkbox" name="student_worker" value="1"> Student Worker
     </label>
 
       <h4>Copy Security of a Staff Member (Choose Current or Former)</h4>
       <div class="pure-u-1-3">
       <label for="current" class="pure-checkbox">
-      <input id="current" type="checkbox" name="current" value="current"> Current
+      <input id="current" type="radio" name="if_cur_staff" value="2"> Current
+      <input id="former" type="radio" name="if_cur_staff" value="1"> Former
+      <input id="n_f_c" type="radio" name="if_cur_staff" value="0" checked="checked"> None
       </label>
     </div>
 
-    <div class="pure-u-1-3">
-    <label for="former" class="pure-checkbox">
-      <input id="former" type="checkbox" name="former" value="former"> Former
-      <label for="remember" class="pure-checkbox">
-    </div>
+
       <br>
 
 
        <div class="pure-u-1-3">
       <label for="name">Name:</label>
-      <input type="text" name="name" id="name" class="pure-u-23-24">
+      <input type="text" name="ref_name" id="name" class="pure-u-23-24" value="none">
     </div>
 
       <div class="pure-u-1-3">
       <label for="position">Position:</label>
-      <input type="text" name="position" id="position" class="pure-u-23-24">
+      <input type="text" name="ref_pos" id="position" class="pure-u-23-24" value="none">
     </div>
 
       <div class="pure-u-1-3">
       <label for="sso">SSO/Pawprint:</label>
-      <input type="text" name="sso" id="sso" class="pure-u-23-24">
+      <input type="text" name="ref_pawprint" id="sso" class="pure-u-23-24" value="none">
     </div>
 
       <div class="pure-u-1-3">
       <label for="emplid2">EmplID:</label>
-      <input type="text" name="emplid2" id="emplid2" class="pure-u-23-24">
+      <input type="number" name="ref_empiid" id="emplid2" class="pure-u-23-24" value="0000">
     </div>
       <hr>
 
@@ -125,28 +122,28 @@
       </p>
       <div class="pure-u-1-3">
       <label for="ferpa">Ferpa Score:</label>
-      <input type="text" name="ferpa" id="ferpa" class="pure-u-23-24">
+      <input type="number" name="ferpa_score" id="ferpa" class="pure-u-23-24" min="85" max="100">
     </div>
       <hr>
 
       <p>Select the Academic Career(s). Please check all that apply.<p>
-      <input type="checkbox" name="ugrd" value="ugrd">UGRD
-      <input type="checkbox" name="grad" value="grad">GRAD
-      <input type="checkbox" name="med" value="med">MED
-      <input type="checkbox" name="vet" value="vet med">VET MED
-      <input type="checkbox" name="law" value="law">LAW
+      <input type="checkbox" name="ac[]" value="4">UGRD
+      <input type="checkbox" name="ac[]" value="3">GRAD
+      <input type="checkbox" name="ac[]" value="2">MED
+      <input type="checkbox" name="ac[]" value="1">VET MED
+      <input type="checkbox" name="ac[]" value="0">LAW
       <br>
       <hr>
 
       <p>Which type of access do you need?</p>
-      <input type="radio" name="access_type" value="2">Student Records
+      <input type="radio" name="access_type" value="2" checked="checked">Student Records
       <input type="radio" name="access_type" value="3">Admissions
       <input type="radio" name="access_type" value="4">Student Financials
       <input type="radio" name="access_type" value="5">Student Financial Aid
       <input type="radio" name="access_type" value="6">Reserved Access
       <hr>
 
-      <button class="button" type="submit" name="submit" >Submit</button>
+      <button class="button" type="submit">Submit</button>
     </div>
 
 
