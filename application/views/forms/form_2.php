@@ -9,12 +9,6 @@
                 width:70%;
             }
 	    .first_col_width{
-<<<<<<< HEAD:application/views/forms/secondform.php
-		        width:20%;
-=======
-		width:20%;
->>>>>>> master:application/views/forms/form_2.php
-         	}
             .right_two_cols{
                 text-align: center;
                 width: 8%;
@@ -153,9 +147,7 @@
           <?php echo form_submit('submit'); ?>
    <?php  echo form_close(); ?>
         </div>
-<<<<<<< HEAD:application/views/forms/secondform.php
       </div>
-=======
+
 
         <div class="err-msg" style="text-align: center;">e: <?php if(isset($format_error)) echo "format not correct " . $format_error; ?></div>
->>>>>>> master:application/views/forms/form_2.php

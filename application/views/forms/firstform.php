@@ -65,20 +65,9 @@
 
       <h3>Security Information</h3>
       <label for="new" class="pure-checkbox">
-<<<<<<< HEAD
-      <input id="new" type="radio" name="studentna" value="new request"> New Request
-    </label>
-
-    <label for="additional" class="pure-checkbox">
-      <input id="additional" type="radio" name="studentna" value="additional request"> Additional Request
-    </label>
-=======
       <input id="new" type="radio" name="request_status" value="1"> New Request
       <input id="additional" type="radio" name="request_status" value="0"> Additional Request
     </label>
-
-
->>>>>>> master
 
     <label id="studentworker" for="remember" class="pure-checkbox">
       <input id="studentworker" type="checkbox" name="studentworker" value="student worker"> Student Worker
@@ -149,30 +138,13 @@
       <br>
       <hr>
 
-<<<<<<< HEAD
-      <h3>Which type of access do you need?</h3>
-      <label for="studentrecords" class="pure-checkbox">
-      <input id="studentrecords" type="checkbox" name="student" value="studentrecords"> Student Records
-      </label>
-      <label for="admissions" class="pure-checkbox">
-      <input id="admissions" type="checkbox" name="admissions" value="admissions"> Admissions
-      </label>
-      <label for="studentfinancials" class="pure-checkbox">
-      <input id="studentfinancials" type="checkbox" name="studentfin" value="studentfinancials"> Student Financials
-      </label>
-      <label for="studentfinancialaid" class="pure-checkbox">
-      <input id="studentfinancialaid" type="checkbox" name="studentaid" value="studentfinancialaid"> Student Financial Aid
-      <label for="reservedaccess" class="pure-checkbox">
-      <input id="reservedaccess" type="checkbox" name="reserved" value="reservedaccess"> Reserved Access
-    </label>
-=======
       <p>Which type of access do you need?</p>
       <input type="radio" name="access_type" value="2">Student Records
       <input type="radio" name="access_type" value="3">Admissions
       <input type="radio" name="access_type" value="4">Student Financials
       <input type="radio" name="access_type" value="5">Student Financial Aid
       <input type="radio" name="access_type" value="6">Reserved Access
->>>>>>> master
+
       <hr>
 
       <button class="pure-button pure-button-primary" type="submit" name="submit" >Submit</button>
@@ -180,11 +152,7 @@
 
   </form>
 </div>
-<<<<<<< HEAD
 </div>
-
-=======
 <div class="err-msg" style="text-align: center;">e: <?php if(isset($format_error)) echo "format not correct " . $format_error; ?></div>
->>>>>>> master
 </body>
 </html>
