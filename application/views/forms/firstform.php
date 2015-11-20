@@ -8,14 +8,15 @@
 <body>
 
   <div class="formcontainer">
-  <div id="firstform">
-  <div id="Smallheader">
+  <div class="alignment">
+  <div class="smallheader">
   <h2>myZou Security Request Form</h2>
   <h2>University of Missouri-Columbia</h2>
 
   <hr>
 
   <h3>Instead of sending request directly to Student Information Systems 130 Jesse Hall, simply submit this form.</h3>
+  <hr>
   </div>
 
 
@@ -76,7 +77,7 @@
     </label>
 
       <h4>Copy Security of a Staff Member (Choose Current or Former)</h4>
-      <div class="pure-u-1-3">
+      <div class="pure-u-1-3" c>
       <label for="current" class="pure-checkbox">
       <input id="current" type="radio" name="currentformer" value="current"> Current
       </label>
@@ -154,9 +155,10 @@
       <input id="studentfinancialaid" type="checkbox" name="studentaid" value="studentfinancialaid"> Student Financial Aid
       <label for="reservedaccess" class="pure-checkbox">
       <input id="reservedaccess" type="checkbox" name="reserved" value="reservedaccess"> Reserved Access
+    </label>
       <hr>
 
-      <button class="pure-button pure-button-primary" type="submit" name="submit" id="firstformsubmit">Submit</button>
+      <button class="pure-button pure-button-primary" type="submit" name="submit" >Submit</button>
 
 
   </form>

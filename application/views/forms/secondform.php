@@ -9,16 +9,16 @@
                 width:70%;
             }
 	    .first_col_width{
-		width:20%;
+		        width:20%;
          	}
             .right_two_cols{
                 text-align: center;
-                width: 40px;
+                width: 8%;
             }
         </style>
-
+<div class="formcontainer">
  <div class="container table-width">
-   <div class="formcontainer">
+
           <?php  echo form_open('');  ?>
            <table class="table table-bordered table-hover">
 
