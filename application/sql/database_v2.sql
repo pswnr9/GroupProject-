@@ -99,7 +99,7 @@ CREATE TABLE `prepare_form` (
   `ref_pawprint` varchar(10) NOT NULL,
   `ref_empiid` int(15) NOT NULL,
   `ferpa_score` int(11) NOT NULL,
-  `access_type` int(1) NOT NULL,
+  `access_type` int(5) NOT NULL,
   `academic_career` int NOT NULL
 );
 

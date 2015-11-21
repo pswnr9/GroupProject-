@@ -88,8 +88,9 @@ class Forms extends CI_Controller {
 //            $this->load->view("templates/footer", $data);
 //        }
 //    }
-//    
+//
     //start of function g
+
     public function g($page ="all") {
         if ( !file_exists(APPPATH.'/views/forms/form_' . $page . '.php') ) {
             // Whoops, we don't have a page for that!
@@ -103,107 +104,116 @@ class Forms extends CI_Controller {
         $data['title'] = "Form - ". $page;
 
         if($_POST) {
-            // $data = $_POST;
-            // $this->load->view("forms/test", $data);
-            // return;
-        //    $data = preprocess($page, $_POST);
-
-            //$check_result = check_form($page, $data);
-      //      $data = escapedata($data);
-            
-$data = $_POST;
-            
-            if(1) {
 
 
-             //insert prepare_form, bi tian      
-//                         $eu_info = array('ferpa_score' => '');
-//                            foreach ($data as $key => $value) {
-//                                if(in_array($key, array_keys($eu_info))) {
-//                                    $eu_info[$key] = $value;
-//                                    if($key != 'pawprint') {
-//                                        unset($data[$key]);
-//                                    }
-//
-//                                }
-//                            } 
+            $data = preprocess($_POST);
 
-                        $this->form->insertPrepareForm($data);
-                
-                        isset($data["access_type"]) ? redirect("index.php/forms/f/".$data["access_type"]) : redirect("index.php/forms/f/1");
+            $check_result = check_forms($data);
 
-                        
-                
+             $data = escapedata($data);
+
+
+
+            if($check_result["passed"]) {
+                $form_id = $this->form->createFormInfo();
+
+                $eu_info = array('username' => '','title' => '','organization' => '','pawprint' => '','empiid' => '','address' => '','phone_num' => '','request_status' => '','student_worker' => '','if_cur_staff' => '','ref_name' => '','ref_pos' => '','ref_pawprint' => '','ref_empiid' => '','ferpa_score' => '','academic_career' => '', 'access_type' => '');
+                foreach ($data as $key => $value) {
+                    if(in_array($key, array_keys($eu_info))) {
+                        $eu_info[$key] = $value;
+                    }
+                }
+                $eu_info['form_id'] = $form_id;
+
+                $this->form->insertPrepareForm($eu_info);
+
+
+
+
                 //GET FORM_ID
-                
-                
-                     if($_POST['access2'] != ""){  // case '2':
+
+
+                     if(is_numeric($data['access_type2'])){  // case '2':
                           $eu_info = array('basic_inquiry' => '','advanced_inquiry' => '','3Cs' => '','advisor_update' => '','department_SOC_update' => '','service_indicators' => '','student_group_view' => '','view_study_list' => '','registrar_enrollment' => '','advisor_student_center' => '','class_permission' => '','class_permission_view' => '','class_roster' => '','block_enrollment' => '','report_manager' => '','self_service_advisor' => '','fiscal_officer' => '','academic_advising_profile' => '');
+                            foreach ($eu_info as $key => $value) {
+                                $eu_info[$key] = 0;
+                            }
                             foreach ($data as $key => $value) {
                                 if(in_array($key, array_keys($eu_info))) {
-                                    $eu_info[$key] = $value;
+                                    $eu_info[$key] = (int)$value;
 
                                 }
-                            } 
-                            $this->form->insertStudentRecordsAccess($data);
+                            }
+                            $eu_info['form_id'] = $form_id;
+                            $this->form->insertStudentRecordsAccess($eu_info);
                          }
 
-                     if($_POST['access3'] != ""){
+                     if(is_numeric($data['access_type3'])){
                          $eu_info = array('act' => '','lelts' => '','ged' => '','sat' => '','lsat' => '','millers' => '','gre' => '','mcat' => '','rpax' => '','gmat' => '','ap' => '','pla-mu' => '','tofel' => '','clep' => '','base' => '');
+                            foreach ($eu_info as $key => $value) {
+                                $eu_info[$key] = 0;
+                            }
                             foreach ($data as $key => $value) {
                                 if(in_array($key, array_keys($eu_info))) {
                                     $eu_info[$key] = $value;
 
                                 }
-                            } 
-                            //$eu_info['form_id'] = $result;
+                            }
+                            $eu_info['form_id'] = $form_id;
                              $this->form->insertAdmissionsAccess($eu_info);
                      }
-                
-                     if($_POST['access4'] != ""){
-                            
-                            $eu_info = array('general_inquiry'=>'','cash_group_post'=>'');
+
+                     if(is_numeric($data['access_type4'])){
+
+                            $eu_info = array('general_inquiry'=>0,'cash_group_post'=>0);
+
                             foreach ($data as $key => $value) {
                                 if(in_array($key, array_keys($eu_info))) {
 
                                     $eu_info[$key] = $value;
 
                                 }
-                            } 
-                               //$eu_info['form_id'] = $result;
+                            }
+                            $eu_info['form_id'] = $form_id;
 
                             $this->form->insertStudentFinancialsAccess($eu_info);
                      }
-                
-                     if($_POST['access5'] != ""){
-                         $eu_info = array('fa_cash'=>'','fa_non_financial_aid_stuff'=>'');
+
+                     if(is_numeric($data['access_type5'])){
+                         $eu_info = array('fa_cash'=>0,'fa_non_financial_aid_stuff'=>0);
                             foreach ($data as $key => $value) {
                                 if(in_array($key, array_keys($eu_info))) {
 
                                     $eu_info[$key] = $value;
 
                                 }
-                            } 
-                         //$eu_info['form_id'] = $result;
-                         $this->form->insertStudentFinancialAidAccess($data);
+                            }
+                         $eu_info['form_id'] = $form_id;
+                         $this->form->insertStudentFinancialAidAccess($eu_info);
                      }
 
-                     if($_POST['access6'] != ""){
+                     if(is_numeric($data['access_type6'])){
                          $eu_info = array('immunization_view ' => '','transfer_credit_admission ' => '','relationships ' => '','student_groups ' => '','accommodate ' => '','support_staff ' => '','advance_standing_report ' => '');
+                            foreach ($eu_info as $key => $value) {
+                                $eu_info[$key] = 0;
+                            }
                             foreach ($data as $key => $value) {
                                 if(in_array($key, array_keys($eu_info))) {
                                     $eu_info[$key] = $value;
 
                                 }
-                            } 
-                         //$eu_info['form_id'] = $result;
+                            }
+                         $eu_info['form_id'] = $form_id;
                         $this->form->insertReservedAccess($eu_info);
                      }
-            
+
 
                 redirect("index.php/users/home");
 
             } else {
+            //      $test['data'] = $data;
+            // $this->load->view("forms/test", $test);
+            // return;
                 $data = $_POST;
                 $data['format_error'] = $check_result['error'];
                 $this->load->view("templates/header", $data);
@@ -211,18 +221,18 @@ $data = $_POST;
                 $this->load->view("templates/footer", $data);
                 return;
             }
-        } 
-            
+        }
+
                 $data = $this->form->getAutoFill($_SESSION['pawprint']);
-            
-            $data['title'] = ucfirst($page); // Capitalize the first letter
+
+
             $this->load->view("templates/header", $data);
             $this->load->view("forms/form_" . $page, $data);
             $this->load->view("templates/footer", $data);
-        
+
     }
-    
-    
+
+
 
 
 }

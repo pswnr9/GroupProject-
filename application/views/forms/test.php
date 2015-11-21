@@ -1,3 +1,5 @@
 <body>
-	<p><?php echo $request_status; ?></p>
+	<p><?php foreach ($data as $key => $value) {
+		echo $key . ' => ' . $value . '<br/>';
+	}; ?></p>
 </body>

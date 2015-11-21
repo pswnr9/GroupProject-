@@ -10,7 +10,7 @@
 	//checking fields
 	function check_empty($data) {
 		foreach ($data as $key => $value) {
-            if(empty($value) && $value != '0') {
+            if(empty($value) && $value != '0' && strpos($key,'access') !== 0) {
                 return false;
             }
         }
@@ -67,43 +67,11 @@
 
 
 	//check forms
-	function check_form($form_num, $data) {
+
+	function check_forms($data) {
 		if(!check_empty($data)) {
 			return array('passed'=>false, "error"=> "empty ");
 		}
-		switch ($form_num) {
-			case '1':
-				return check_form_1($data);
-				break;
-
-			case '2':
-				return check_form_2($data);
-				break;
-
-			case '3':
-				return check_form_3($data);
-				break;
-
-			case '4':
-				return check_form_4($data);
-				break;
-
-			case '5':
-				return check_form_5($data);
-				break;
-
-			case '6':
-				return check_form_6($data);
-				break;
-
-			default:
-				return false;
-				break;
-		}
-	}
-
-	function check_form_1($data) {
-
 
 		if(!check_phone($data["phone_num"])) {
 			return array('passed'=>false, "error"=> "phone_num");
@@ -120,26 +88,6 @@
 		return array('passed'=>true, "error"=>'');
 	}
 
-	function check_form_2($data) {
-
-		return array('passed'=>true, "error"=>'');
-	}
-
-	function check_form_3($data) {
-		return array('passed'=>true, "error"=>'');
-	}
-
-	function check_form_4($data) {
-		return array('passed'=>true, "error"=>'');
-	}
-
-	function check_form_5($data) {
-		return array('passed'=>true, "error"=>'');
-	}
-
-	function check_form_6($data) {
-		return array('passed'=>true, "error"=>'');
-	}
 
 
 
@@ -147,72 +95,59 @@
 
 	//preproces forms
 	function preprocess_1($data) {
-		if(!isset($data["student_worker"])) {
-            $data["student_worker"] = 0;
-        }
+		if(!isset($data['student_worker']) || empty($data['student_worker'])) {
+			$data['student_worker'] = 0;
+		}
 
-        if(!isset($data['ac'])) {
-        	$data['academic_career'] = 0;
+		if(!isset($data['ac'])) {
+			$data['academic_career'] = 0;
         } else {
-        	$data["academic_career"] = convert_cbs($data['ac']);
+        	if(is_array($data['ac'])) {
+        		$data['academic_career'] = convert_cbs($data['ac']);
+        	} else {
+        		$data['academic_career'] = 0;
+        	}
+
         	unset($data['ac']);
         }
 
-        $data['pawprint'] = $_SESSION['pawprint'];
-		return $data;
+		$access_types = array();
+       	for ($i=2; $i <= 6; $i++) {
+       		if(isset($data['access_type'.$i]) && is_numeric($data['access_type'.$i])) {
+	        	array_push($access_types, 6 - $i);
+	        }
+       	}
+       	$data['pawprint'] = $_SESSION['pawprint'];
+       	$data['access_type'] = convert_cbs($access_types);
+
+
+       	return $data;
 	}
 
-	function preprocess_2($data) {
-		return $data;
-	}
-
-	function preprocess_3($data) {
-		return $data;
-	}
-
-	function preprocess_4($data) {
-		return $data;
-	}
-
-	function preprocess_5($data) {
-		return $data;
-	}
-
-	function preprocess_6($data) {
-		return $data;
-	}
-
-
-	function preprocess($form_num, $data) {
-		switch ($form_num) {
-			case '1':
-				return preprocess_1($data);
-				break;
-
-			case '2':
-				return preprocess_2($data);
-				break;
-
-			case '3':
-				return preprocess_3($data);
-				break;
-
-			case '4':
-				return preprocess_4($data);
-				break;
-
-			case '5':
-				return preprocess_5($data);
-				break;
-
-			case '6':
-				return preprocess_6($data);
-				break;
-
-			default:
-				return false;
-				break;
+	function preprocess($data) {
+		$eu_info = array('username' => '','title' => '','organization' => '','pawprint' => '','empiid' => '','address' => '','phone_num' => '','request_status' => '','student_worker' => '','if_cur_staff' => '','ref_name' => '','ref_pos' => '','ref_pawprint' => '','ref_empiid' => '','ferpa_score' => '','ac' => '','access_type2' => '','access_type3' => '', 'access_type4' => '', 'access_type5' => '', 'access_type6' => '');
+		foreach ($data as $key => $value) {
+			if(in_array($key, array_keys($eu_info))) {
+                $eu_info[$key] = $value;
+                unset($data[$key]);
+            }
 		}
+		$eu_info = preprocess_1($eu_info);
+
+
+		unset($data['all']);
+
+		foreach ($data as $key => $value) {
+        	if(is_array($value)) {
+        		$data[$key] = convert_cbs($data[$key]);
+        	}
+		}
+
+
+		$data = array_merge($eu_info, $data);
+
+		return $data;
+
 	}
 
 	function convert_cbs($cb_arr) {
