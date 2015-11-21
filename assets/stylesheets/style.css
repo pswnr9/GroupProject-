@@ -12,6 +12,7 @@ html, body{
   margin: auto;
   width: 1100px;
   background-color: white;
+  overflow: hidden;
   border-style: solid;
 }
 
@@ -24,6 +25,9 @@ html, body{
 
 .formcontainer button
 {
+  background-color: grey;
+}
+#clean {
   background-color: grey;
 }
 .header{
