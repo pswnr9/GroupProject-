@@ -20,6 +20,7 @@
       <h3>Select the Academic Career(s). Please check all that apply.</h3>
       <hr>
       <br>
+      
     <label for="ACT" class="pure-checkbox">
       <input id="ACT" type="checkbox" name="ACT" value="ACT"> ACT
     </label>

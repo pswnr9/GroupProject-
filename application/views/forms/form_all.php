@@ -4,31 +4,33 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/stylesheets/style.css">
 <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
 <style>
-  form {
+  /*form {
     background-color: white;
     border-style: solid;
   }
 
   #Smallheader {
     text-align: center;
-  }
+  }*/
 
 </style>
 
 
 </head>
 <body>
-
-  <div id="Smallheader">
+  <div class="formcontainer">
+  <div class="alignment">
+  <div class="smallheader">
   <h2>myZou Security Request Form</h2>
   <h2>University of Missouri-Columbia</h2>
 
   <hr>
 
   <h3>Instead of sending request directly to Student Information Systems 130 Jesse Hall, simply submit this form.</h3>
+  <hr>
   </div>
 
  <div>
@@ -37,7 +39,7 @@
 
 
 
-        <h3>Enter your information.</h3>
+        <h3>Enter your information</h3>
     <div>
         <div id="Security">
         <div class="pure-g">
@@ -136,24 +138,45 @@
         </div>
           <hr>
 
-          <p>Select the Academic Career(s). Please check all that apply.<p>
-          <input type="checkbox" name="ac[]" value="4">UGRD
-          <input type="checkbox" name="ac[]" value="3">GRAD
-          <input type="checkbox" name="ac[]" value="2">MED
-          <input type="checkbox" name="ac[]" value="1">VET MED
-          <input type="checkbox" name="ac[]" value="0">LAW
+          <h3>Select the Academic Career(s). Please check all that apply.</h3>
+        <label for="ugrd" class="pure-checkbox">
+          <input id="ugrd" type="checkbox" name="ac[]" value="4"> UGRD
+        </label>
+        <label for="grad" class="pure-checkbox">
+          <input id="grad" type="checkbox" name="ac[]" value="3"> GRAD
+        </label>
+        <label for="med" class="pure-checkbox">
+          <input id="med" type="checkbox" name="ac[]" value="2"> MED
+        </label>
+        <label for="vetmed" class="pure-checkbox">
+          <input id="vetmed" type="checkbox" name="ac[]" value="1"> VET MED
+        </label>
+        <label for="law" class="pure-checkbox">
+          <input id="law" type="checkbox" name="ac[]" value="0"> LAW
+        </label>
           <br>
           <hr>
 
-          <p>Which type of access do you need?</p>
-          <input type="checkbox" name="access_type2" id = "access_type2" value="2">Student Records
-          <input type="checkbox" name="access_type3"  id = "access_type3" value="3">Admissions
-          <input type="checkbox" name="access_type4" id = "access_type4"  value="4">Student Financials
-          <input type="checkbox" name="access_type5" id = "access_type5"  value="5">Student Financial Aid
-          <input type="checkbox" name="access_type6"  id = "access_type6" value="6">Reserved Access
+          <h3>Which type of access do you need?</h3>
+        <label for="access_type2" class="pure-checkbox">
+          <input type="checkbox" name="access_type2" id = "access_type2" value="2"> Student Records
+        </label>
+        <label for="access_type3" class="pure-checkbox">
+          <input type="checkbox" name="access_type3"  id = "access_type3" value="3"> Admissions
+        </label>
+        <label for="access_type4" class="pure-checkbox">
+          <input type="checkbox" name="access_type4" id = "access_type4"  value="4"> Student Financials
+        </label>
+        <label for="access_type5" class="pure-checkbox">
+          <input type="checkbox" name="access_type5" id = "access_type5"  value="5"> Student Financial Aid
+        </label>
+        <label for="access_type6" class="pure-checkbox">
+          <input type="checkbox" name="access_type6"  id = "access_type6" value="6"> Reserved Access
+        </label>
           <hr>
 
-          <button class="button" type="button" name="button" onclick = "get();">go get forms</button>
+
+        <button class="button pure-button pure-button-primary" type="button" name="button" onclick = "get();">Get Forms</button>
         </div>
 
 
@@ -311,8 +334,14 @@
             </div>
             <!-- end of form2 -->
             <div id = "form3">
+              <div class='smallheader'>
+              <hr>
+              <h1>Admissions Access</h1>
+              <hr>
+            </div>
 
-                      <p>Select the Academic Career(s). Please check all that apply.<p>
+                  <h3>Select the Academic Career(s). Please check all that apply.</h3>
+                  <hr>
                       <input type="checkbox" name="all" value="all">Access to ALL test scores
                       <br>
                       <input type="checkbox" name="act" value="1">ACT
@@ -438,13 +467,15 @@
                         <input type="hidden" name = "access5" id = "access5" value = "">
 
                         <input type="hidden" name = "access6" id = "access6" value = "">
-
-            <input type="submit" value="submit">submit
+            <hr>
+            <input id="clean" class="pure-button pure-button-primary" type="submit" value="Submit">
 
 </div>
 
 
   </form>
+</div>
+</div>
 </div>
 <div class="err-msg" style="text-align: center;">e: <?php if(isset($format_error)) echo "format not correct " . $format_error; ?></div>
 
