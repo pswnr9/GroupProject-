@@ -105,21 +105,6 @@ CREATE TABLE `prepare_form` (
 
 -- --------------------------------------------------------
 
--- Table structure for table `form_info`
---
-
-CREATE TABLE `form_info` (
-  `form_id` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  `pawprint` varchar(10) REFERENCES emp_user_info(pawprint),
-  `app_id` int NOT NULL,
-  `create_date` date NOT NULL,
-  `approved_date` date,
-  `admin_approved_pawprint` varchar(10) REFERENCES admin_user_info(pawprint),
-  `approved` boolean NOT NULL DEFAULT 0
-);
-
--- --------------------------------------------------------
-
 -- Table structure for table `admission_access`
 --
 
