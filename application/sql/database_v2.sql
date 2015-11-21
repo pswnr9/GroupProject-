@@ -65,26 +65,6 @@ CREATE TABLE `tech_user_info` (
   `salt` varchar(55) NOT NULL
 );
 
--- --------------------------------------------------------
-
---
--- Table structure for table `prepare_form`
---
-
-CREATE TABLE `prepare_form` (
-  `form_id` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  `pawprint` varchar(10) REFERENCES emp_user_info(pawprint),
-  `request_status` int(1) NOT NULL,
-  `student_worker` int(1) NOT NULL,
-  `if_cur_staff` int(1) NOT NULL,
-  `ref_name` varchar(30) NOT NULL,
-  `ref_pos` varchar(30) NOT NULL,
-  `ref_pawprint` varchar(10) NOT NULL,
-  `ref_empiid` int(15) NOT NULL,
-  `ferpa_score` int(11) NOT NULL,
-  `access_type` int(1) NOT NULL,
-  `academic_career` int NOT NULL
-);
 
 -- --------------------------------------------------------
 
@@ -100,6 +80,27 @@ CREATE TABLE `form_info` (
   `approved_date` date,
   `admin_approved_pawprint` varchar(10) REFERENCES admin_user_info(pawprint),
   `approved` boolean NOT NULL DEFAULT 0
+);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `prepare_form`
+--
+
+CREATE TABLE `prepare_form` (
+  `form_id` int REFERENCES form_info(form_id),
+  PRIMARY KEY (form_id),
+  `request_status` int(1) NOT NULL,
+  `student_worker` int(1) NOT NULL,
+  `if_cur_staff` int(1) NOT NULL,
+  `ref_name` varchar(30) NOT NULL,
+  `ref_pos` varchar(30) NOT NULL,
+  `ref_pawprint` varchar(10) NOT NULL,
+  `ref_empiid` int(15) NOT NULL,
+  `ferpa_score` int(11) NOT NULL,
+  `access_type` int(5) NOT NULL,
+  `academic_career` int NOT NULL
 );
 
 -- --------------------------------------------------------
