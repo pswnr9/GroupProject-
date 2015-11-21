@@ -21,7 +21,7 @@
     </div>
     <div class="LogInContainer">
   <div class="dropdown">
-    <a href="<?php echo base_url(); ?>index.php/forms/f/1"><!-- <button class="Submit" type="button" data-toggle="dropdown"> -->Fill out MyZou Sequrit Request Form
+    <a href="<?php echo base_url(); ?>index.php/forms/g"><!-- <button class="Submit" type="button" data-toggle="dropdown"> -->Fill out MyZou Sequrit Request Form
     <!-- </button> --></a>
 </div>
         <div class="LogInContainer">

@@ -3,7 +3,7 @@ class Form extends CI_Model{
     public function __construct() {
         $config['hostname'] = 'localhost';
         $config['username'] = 'root';
-        $config['password'] = 'root';
+        $config['password'] = '';
         $config['database'] = 'TeamWt';
         $config['dbdriver'] = 'mysqli';
         $config['dbprefix'] = '';
@@ -69,10 +69,7 @@ class Form extends CI_Model{
         foreach ($formInfo as $key => $value) {
             if(in_array($key, array_keys($eu_info))) {
                 $eu_info[$key] = $value;
-                if($key != 'pawprint') {
-                    unset($formInfo[$key]);
-                }
-
+                unset($formInfo[$key]);
             }
         }
 
@@ -85,17 +82,39 @@ class Form extends CI_Model{
         $this->db->update('emp_user_info', $eu_info);
 
         //select form by pawprint, not exists, insert, else updata
-        $this->db->select('*')->from('prepare_form')->where('pawprint', $pawprint);
-        $query = $this->db->get();
-        if ( $query->num_rows() > 0 ) {
-            $this->db->where('pawprint', $pawprint);
-            $this->db->update('prepare_form', $formInfo);
-        } else {
-            $this->db->insert('prepare_form', $formInfo);
-        }
+       // $this->db->select('*')->from('prepare_form')->where('pawprint', $pawprint);
+        //$query = $this->db->get();
+        // if ( $query->num_rows() > 0 ) {
+        //     $this->db->where('pawprint', $pawprint);
+        //     $this->db->update('prepare_form', $formInfo);
+        // } else {
+        $this->db->insert('prepare_form', $formInfo);
+        // }
 
 
     }
+
+    public function createFormInfo() {
+        date_default_timezone_set('America/Los_Angeles');
+        $form_info = array();
+        $form_info['pawprint'] = $_SESSION['pawprint'];
+        $form_info['app_id'] = 0;
+        $form_info['create_date'] = date('Y-m-d H:i:s');
+        $this->db->insert('form_info', $form_info);
+        return $this->db->insert_id();;
+    }
+
+    public function updateUserInfo($user_info) {
+        foreach ($formInfo as $key => $value) {
+            $formInfo[$key] = htmlspecialchars($value);
+        }
+
+        $pawprint = $user_info['pawprint'];
+        unset($user_info['pawprint']);
+        $this->db->where('pawprint', $pawprint);
+        $this->db->update('emp_user_info', $user_info);
+    }
+
 
 
     public function insertStudentRecordsAccess($formInfo){
