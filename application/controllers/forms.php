@@ -33,7 +33,7 @@ class Forms extends CI_Controller {
             show_404();
         }
 
-        $this->form->approveForm($page, true);
+        $this->form->approveForm($page, true, $_SESSION["pawprint"]);
         redirect("index.php/users/home");
     }
 
@@ -141,17 +141,20 @@ class Forms extends CI_Controller {
                      }
 
                      if(is_numeric($data['access_type6'])){
-                         $eu_info = array('immunization_view ' => '','transfer_credit_admission ' => '','relationships ' => '','student_groups ' => '','accommodate ' => '','support_staff ' => '','advance_standing_report ' => '');
+                         $eu_info = array('immunization_view' => '','transfer_credit_admission' => '','relationships' => '','student_groups' => '','accommodate' => '','support_staff' => '','advance_standing_report' => '');
                             foreach ($eu_info as $key => $value) {
                                 $eu_info[$key] = 0;
                             }
+
+
                             foreach ($data as $key => $value) {
                                 if(in_array($key, array_keys($eu_info))) {
                                     $eu_info[$key] = $value;
 
                                 }
                             }
-                         $eu_info['form_id'] = $form_id;
+                            $eu_info['form_id'] = $form_id;
+
                         $this->form->insertReservedAccess($eu_info);
                      }
 
