@@ -3,6 +3,7 @@ class Users extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model("account");
+        $this->load->model("form");
         $this->load->helper('url');
         $this->load->helper('session');
         $this->load->helper('checking');
@@ -139,8 +140,12 @@ class Users extends CI_Controller {
                 $data['db_error'] = true;
             }
 
-
         }
+
+        if($_SESSION['user_type'] == 'admin') {
+            $data["pending_forms"] = $this->form->getPendingForms();
+        }
+
         $data['title'] = "Home - " .$_SESSION['user_type'];
 
         $this->load->view('users/'.$_SESSION['user_type'].'_home', $data);
