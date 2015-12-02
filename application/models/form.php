@@ -157,6 +157,41 @@ class Form extends CI_Model{
         $this->db->insert('reserved_access', $formInfo);
     }
 
+    public function approveForm($form_id, $approved, $admin_pp) {
+        $this->db->where('form_id', $form_id);
+        $this->db->update('form_info', array("approved" => $approved, "approved_date" => date('Y-m-d'), "admin_approved_pawprint" => $admin_pp));
+    }
+
+    public function getPendingForms() {
+        $this->db->select('*')->from('form_info');
+        $query = $this->db->get();
+
+        return $query->result();
+    }
+
+    public function getFormById($form_id) {
+        $this->db->select('*')->from('form_info')->where('form_id', $form_id);
+        $query1 = $this->db->get();
+        $result = array();
+        if($query1->num_rows() > 0) {
+            $form_types = array("prepare_form", "admission_access", "financial_access", "financial_aid_access", "reserved_access", "student_record_access");
+            foreach ($form_types as $ft) {
+                $this->db->select('*')->from($ft)->where('form_id', $form_id);
+                $query = $this->db->get();
+                $result[$ft] = $query->num_rows() > 0 ? $query->result_array()[0] : array();
+            }
+
+            $this->db->select('*')->from('emp_user_info')->where('pawprint', $query1->first_row()->pawprint);
+            $query = $this->db->get();
+            $emp_user_info = $query->result_array()[0];
+            unset($emp_user_info['password']);
+            unset($emp_user_info['salt']);
+            $result["prepare_form"] = array_merge($emp_user_info, $result["prepare_form"]);
+
+        }
+        return $result;
+    }
+
     /*
      * The following functions will get the information from the forms from the DB
      * and return them as an array

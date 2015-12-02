@@ -44,7 +44,7 @@
 	}
 
 
-	function check_register($dt) {
+	function check_register($dt, $admin) {
 		if(!check_empty($dt)) {
 			return array('passed'=>false, "error"=> "empty");
 		}
@@ -57,7 +57,7 @@
 			return array('passed'=>false, "error"=> "empiid");
 		}
 
-		if(!check_pass_same($dt["password"], $dt["password_retype"])) {
+		if(!$admin && !check_pass_same($dt["password"], $dt["password_retype"])) {
 			return array('passed'=>false, "error"=>"password");
 		}
 
