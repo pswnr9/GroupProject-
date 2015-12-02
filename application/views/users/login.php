@@ -56,10 +56,9 @@
             </div>
             <input type="submit" value="Submit" class="Submit">
         </form>
-    </div>
-    <div>Don't have an account? <a href="<?php echo base_url(); ?>index.php/users/register">Register</a></div>
-    <div>
-        <p style="font-size: 25px; color:red"><?php echo isset($auth_error) ? "password not corret or account not existed!!" . $auth_error : ""; ?></p>
-    </div>
+    <div id="register"><button class="Submit" type="submit"><a href="<?php echo base_url(); ?>index.php/users/register">Register</a></button>
+    <p style="font-size: 25px; color:red"><?php echo isset($auth_error) ? "password not corret or account not existed!!" . $auth_error : ""; ?></p>
+  </div>
+</div>
 </body>
 </html>
