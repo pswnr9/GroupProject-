@@ -3,7 +3,7 @@ class Form extends CI_Model{
     public function __construct() {
         $config['hostname'] = 'localhost';
         $config['username'] = 'root';
-        $config['password'] = 'root';
+        $config['password'] = '';
         $config['database'] = 'TeamWt';
         $config['dbdriver'] = 'mysqli';
         $config['dbprefix'] = '';
@@ -156,6 +156,11 @@ class Form extends CI_Model{
 
         $this->db->insert('reserved_access', $formInfo);
     }
+
+    // public function approveFrom($form_id, $approved) {
+    //     $this->db->where('form_id', $form_id);
+    //     $this->db->update('emp_user_info', array("approved" => $approved), );
+    // }
 
     /*
      * The following functions will get the information from the forms from the DB

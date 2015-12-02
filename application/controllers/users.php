@@ -36,7 +36,7 @@ class Users extends CI_Controller {
 
 
             if($this->account->authentication($data)) {
-                session_start();
+                // session_start();
                 $_SESSION["pawprint"] = $data["pawprint"];
                 $_SESSION["user_type"] = $data["user_type"];
                 redirect("index.php/users/home");
@@ -69,7 +69,7 @@ class Users extends CI_Controller {
         if($_POST) {
             $data = escapedata($_POST);
 
-            $check_result = check_register($data);
+            $check_result = check_register($data, false);
 
             if(!$check_result["passed"]) {
                 $data = $_POST;
@@ -122,8 +122,26 @@ class Users extends CI_Controller {
             show_404();
         }
 
-        $data['title'] = "Home - " .$_SESSION['user_type'];
+        $data = array();
 
+        if($_POST) {
+            $data = escapedata($_POST);
+
+            $check_result = check_register($data, true);
+
+            if(!$check_result["passed"]) {
+                $data = $_POST;
+                $data['format_error'] = $check_result["error"];
+
+            } else if($this->account->registerAdminAccount($data)) {
+                redirect("index.php/users/home");
+            } else {
+                $data['db_error'] = true;
+            }
+
+
+        }
+        $data['title'] = "Home - " .$_SESSION['user_type'];
 
         $this->load->view('users/'.$_SESSION['user_type'].'_home', $data);
     }

@@ -5,7 +5,7 @@ class Account extends CI_model {
     public function __construct() {
         $config['hostname'] = 'localhost';
         $config['username'] = 'root';
-        $config['password'] = 'root';
+        $config['password'] = '';
         $config['database'] = 'TeamWt';
         $config['dbdriver'] = 'mysqli';
         $config['dbprefix'] = '';
@@ -37,7 +37,7 @@ class Account extends CI_model {
     //Returns true if authentication is successful, returns false if not
     public function authentication($data){
 
-        $query = $this->db->get_where('emp_user_info', array('pawprint' => $data["pawprint"]));
+        $query = $this->db->get_where($data["user_type"] . '_user_info', array('pawprint' => $data["pawprint"]));
         if(count($query->result()) == 0) {
             return false;
         }
@@ -47,7 +47,7 @@ class Account extends CI_model {
         $this->db->where('pawprint', $data["pawprint"]);
         //switch case changes the table the data is retrieved from based on user type
         switch ($data["user_type"]){
-            case "employee":
+            case "emp":
                 $query = $this->db->get('emp_user_info');
                 break;
             case "admin":
@@ -57,7 +57,7 @@ class Account extends CI_model {
                 $query = $this->db->get('tech_user_info');
                 break;
             default:
-                break;
+                return false;
         }
         $row = $query->first_row('array');
         $password_hash = $row['password'];
@@ -89,13 +89,22 @@ class Account extends CI_model {
 
     }
 
-        public function registerAdminAccount($userInfo){
+    public function registerAdminAccount($userInfo){
         foreach ($userInfo as $key => $value) {
             $userInfo[$key] = htmlspecialchars($value);
         }
+
+
+        $query = $this->db->get_where('admin_user_info', array('pawprint' => $userInfo["pawprint"]));
+
+        if(count($query->result()) != 0) {
+            return false;
+        }
+
+
         mt_srand();
         $userInfo['salt'] = mt_rand();
-        $userInfo['password'] = hash('sha512', $userInfo['password'] . $userInfo['salt'], false);
+        $userInfo['password'] = hash('sha512', "0000" . $userInfo['salt'], false);
         $this->db->insert('admin_user_info', $userInfo);
     }
 

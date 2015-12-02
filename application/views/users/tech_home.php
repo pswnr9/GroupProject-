@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-	
+
 </head>
 <body>
   <div class="header">
@@ -17,7 +17,7 @@
         <div class="TigerPic"></div>
         <div class="MainHeading">University of Missouri -            Columbia
         </div>
-      <div class="AddAdmin">
+      <form class="AddAdmin" method="POST" action="<?= $_SERVER['PHP_SELF'] ?>">
         <h1>Add Administration</h1>
           <div>
               <label for="username">Username:</label>
@@ -25,7 +25,7 @@
           </div>
           <div>
               <label for="empid">Employee ID:</label>
-              <input type="text" name="empid" id="empid" placeholder="Enter ID">
+              <input type="text" name="empiid" id="empid" placeholder="Enter ID">
           </div>
           <div>
               <label for="title">Title:</label>
@@ -44,15 +44,16 @@
               <input type="text" name="address" id="address" placeholder="Enter address">
             </div>
             <div>
-              <label for="phon_num">Phone Number:</label>
-              <input type="text" name="phon_num" id="phon_num" placeholder="XXX-XXX-XXXX">
+              <label for="phone_num">Phone Number:</label>
+              <input type="text" name="phone_num" id="phone_num" placeholder="XXX-XXX-XXXX">
             </div>
-            <button class="SubmitButton" type="submit" name="submit" >Submit</button>
-      </div>
-        
+            <input class="SubmitButton" type="submit" ></input>
+      </form>
+
     </div>
- 
-      
+
+    <p><?php if(isset($format_error)) echo "!@3"; ?></p>
     <button class="logoutButton" type="submit" name="submit" >Log Out</button>
+    <a href="<?php echo base_url(); ?>index.php/users/logout">Log Out</a>
 </body>
 </html>

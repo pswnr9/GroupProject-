@@ -1,5 +1,3 @@
 <body>
-	<p><?php foreach ($data as $key => $value) {
-		echo $key . ' => ' . $value . '<br/>';
-	}; ?></p>
+	<p><?php  echo hash('sha512', "123321" . "123", false); ?></p>
 </body>
