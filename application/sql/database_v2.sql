@@ -44,8 +44,11 @@ CREATE TABLE `emp_user_info` (
 
 CREATE TABLE `admin_user_info` (
   `pawprint` varchar(10) PRIMARY KEY NOT NULL,
+  `empiid` int(15) NOT NULL,
+  `title` varchar(55) NOT NULL,
+  `organization` varchar(55) NOT NULL,
   `username` varchar(55) NOT NULL,
-  `email` varchar(55) NOT NULL,
+  `phone_num` varchar(20) NOT NULL,
   `address` varchar(100) NOT NULL,
   `password` varchar(200) NOT NULL,
   `salt` varchar(55) NOT NULL
@@ -211,8 +214,8 @@ CREATE TABLE `student_record_access` (
 --
 
 INSERT INTO `tech_user_info` (`pawprint`, `username`, `email`, `password`, `salt`) VALUES
-('cwcf34', 'Cody Cameron', 'cwcf34@mail.missouri.edu', '123321', '123'),
-('twn64', 'Tianbo Wang', 'twn64@mail.missouri.edu', '123321', '123');
+('cwcf34', 'Cody Cameron', 'cwcf34@mail.missouri.edu', SHA2('123321123', 512), '123'),
+('twn64', 'Tianbo Wang', 'twn64@mail.missouri.edu', SHA2('123321123', 512), '123');
 
 -- INSERT INTO `emp_user_info` (`pawprint`, `username`, `empiid`, `title`, `organization`, `address`, `phone_num`, `password`, `salt`) VALUES
 -- ('cwcf34', 'Cody Cameron', 'cwcf34@mail.missouri.edu', '123321', '123'),
