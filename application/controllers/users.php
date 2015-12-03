@@ -114,8 +114,13 @@ class Users extends CI_Controller {
     }
 
     public function home($page="") {
+
         if(!session()) {
             redirect("index.php/users/login");
+        }
+
+        if(!isset($_SESSION)) {
+            return;
         }
 
         if ( ! file_exists(APPPATH.'/views/users/'.$_SESSION['user_type'].'_home.php')) {
