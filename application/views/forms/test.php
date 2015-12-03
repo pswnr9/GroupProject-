@@ -6,7 +6,7 @@
 				"admission_access" => array,
 				"financial_access" => array,
 				"financial_aid_access" => array,
-				"reserved_access"
+				"reserved_access" => array
 			)
 		 */
 		foreach ($form_info as $key => $value) {

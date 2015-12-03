@@ -32,7 +32,10 @@ class Forms extends CI_Controller {
         if(count($form_info) == 0) {
             show_404();
         }
-
+        session_start();
+        if(!isset($_SESSION)) {
+            return;
+        }
         $this->form->approveForm($page, true, $_SESSION["pawprint"]);
         redirect("index.php/users/home");
     }
