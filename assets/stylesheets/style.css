@@ -24,10 +24,10 @@ html, body{
 .formcontainer {
   position: relative;
   top: 70px;
-  margin: auto;
   width: 1100px;
+  margin: auto;
   background-color: white;
-  overflow: hidden;
+  overflow: auto;
   border-style: solid;
 }
 
