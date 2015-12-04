@@ -34,6 +34,9 @@ class Forms extends CI_Controller {
         }
 
         session_start();
+        if(!isset($_SESSION)) {
+            return;
+        }
 
         $this->form->approveForm($page, true, $_SESSION["pawprint"]);
         redirect("index.php/users/home");
