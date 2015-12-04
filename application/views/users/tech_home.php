@@ -2,9 +2,9 @@
 <html>
 <head>
 <title>Tech Page</title>
-<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/stylesheets/style.css">
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
@@ -17,6 +17,7 @@
         <div class="TigerPic"></div>
         <div class="MainHeading">University of Missouri -            Columbia
         </div>
+        <div class="formcontainter">
       <form class="AddAdmin" method="POST" action="<?= $_SERVER['PHP_SELF'] ?>">
         <h1>Add Administration</h1>
           <div>
@@ -50,10 +51,12 @@
             <input class="SubmitButton" type="submit" ></input>
       </form>
 
+      <p><?php if(isset($format_error)) echo "!@3"; ?></p>
+      <button class="logoutButton" type="submit" name="submit" >Log Out</button>
+      <a href="<?php echo base_url(); ?>index.php/users/logout">Log Out</a>
     </div>
+  </div>
 
-    <p><?php if(isset($format_error)) echo "!@3"; ?></p>
-    <button class="logoutButton" type="submit" name="submit" >Log Out</button>
-    <a href="<?php echo base_url(); ?>index.php/users/logout">Log Out</a>
+
 </body>
 </html>
