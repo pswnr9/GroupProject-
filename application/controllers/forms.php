@@ -185,9 +185,43 @@ class Forms extends CI_Controller {
             $this->load->view("templates/footer", $data);
 
     }
+    
+    
+    public function downloadPDF($forms, $formData) {
+        //this data will be passed on to the view
+        
+        $data = $formData;
+        if(isset($forms['2'])){
+            $data['form_2'] = true;            
+        }
+        if(isset($forms['3'])){
+            $data['form_3'] = true;            
+        }
+        if(isset($forms['4'])){
+            $data['form_4'] = true;            
+        }
+        if(isset($forms['5'])){
+            $data['form_5'] = true;            
+        }
+        if(isset($forms['6'])){
+            $data['form_6'] = true;            
+        }
 
+        //load the view, pass the variable and do not show it but "save" the output into $html variable
+        $html=$this->load->view('pdf_output', $data, true); 
 
+        //this the the PDF filename that user will get to download
+        $pdfFilePath = "the_pdf_output.pdf";
 
+        //load mPDF library
+        $this->load->library('m_pdf');
+        //actually, you can pass mPDF parameter on this load() function
+        $pdf = $this->m_pdf->load();
+        //generate the PDF!
+        $pdf->WriteHTML($html);
+        //offer it to user via browser download! (The PDF won't be saved on your server HDD)
+        $pdf->Output($pdfFilePath, "D");
+    }
 
 }
 ?>
