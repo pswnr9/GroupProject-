@@ -43,7 +43,6 @@ class Forms extends CI_Controller {
     }
 
     //start of function g
-
     public function g($page ="all") {
         if ( !file_exists(APPPATH.'/views/forms/form_' . $page . '.php') ) {
             // Whoops, we don't have a page for that!
@@ -188,7 +187,29 @@ class Forms extends CI_Controller {
 
     }
     
-    
+    public function view_submitted_forms(){
+        if(!session()) {
+            redirect("index.php/users/login");
+        }
+        $pawprint = $_SESSION['pawprint'];
+        $ids = $this->form->getIdByPawprint($pawprint);
+        print_r(var_dump($ids));
+        //$ids = array(0~)
+        $result = array();
+        $i = 0;
+            
+        foreach ($ids as $value){
+            $result[$i] = $this->form->getFormById($value);
+            $i++;
+        }
+        //$result[0]->array of five array
+            
+            $data = array("result" => $result);
+
+        $this->load->view("forms/test_view_forms", $data);
+        
+        
+    }
     public function downloadPDF($forms, $formData) {
         //this data will be passed on to the view
         
