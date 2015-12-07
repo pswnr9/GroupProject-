@@ -2,7 +2,14 @@ button + button {
   margin-top: 5px;
 
 }
+ #tech {
+   background-color: grey;
+ }
 
+.center {
+  margin-top: 100px;
+  text-align: center;
+}
 #registerbutton {
   margin-top: 10px;
 }
@@ -12,6 +19,7 @@ button + button {
   width:450px;
   margin-top: -70px;
 }
+
 
 html, body{
     margin: 0;
