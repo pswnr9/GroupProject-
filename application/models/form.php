@@ -4,7 +4,7 @@ class Form extends CI_Model{
         $config['hostname'] = 'localhost';
         $config['username'] = 'root';
         $config['password'] = 'root';
-        $config['database'] = 'TW';
+        $config['database'] = 'TeamWt';
         $config['dbdriver'] = 'mysqli';
         $config['dbprefix'] = '';
         $config['pconnect'] = FALSE;
@@ -181,7 +181,7 @@ class Form extends CI_Model{
             $i++;
         }
         return $final;
-        
+
     }
 
     public function getFormById($form_id) {

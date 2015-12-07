@@ -2,18 +2,32 @@
 <html>
 <head>
     <title>Administration Page </title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/stylesheets/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
    <style>
-     
-       
+
+
    </style>
 </head>
 <body>
-    <h1>admin home page</h1>
+  <div class="header">
+         <div class="LeftLogoContainer">
+             <div class="Logo"></div>
+         </div>
+         <div class="TigerPic"></div>
+         <div class="MainHeading">University of Missouri -            Columbia
+         </div>
+     </div>
+
+     <div class="formcontainer">
+     <div class="alignment">
+      <div class="smallheader">
+    <h1>Admin Home Page</h1>
+  </div>
+  <hr>
     <div class="container">
         <table class="table table-hover">
             <thead>
@@ -34,8 +48,11 @@
             </tbody>
           </table>
     </div>
+  </div>
+</div>
 
-
-    <a href="<?php echo base_url(); ?>index.php/users/logout">Log Out</a>
+<div class="center">
+<button class="Submit" type="submit" name="submit"><a href="<?php echo base_url(); ?>index.php/users/logout">Log Out</a></button>
+</div>
 </body>
 </html>

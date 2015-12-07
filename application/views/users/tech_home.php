@@ -17,44 +17,62 @@
         <div class="TigerPic"></div>
         <div class="MainHeading">University of Missouri -            Columbia
         </div>
-        <div class="formcontainter">
-      <form class="AddAdmin" method="POST" action="<?= $_SERVER['PHP_SELF'] ?>">
-        <h1>Add Administration</h1>
-          <div>
+      </div>
+        <div class="formcontainer">
+        <div class="alignment">
+
+        <div class="smallheader">
+          <h2>Add Administration</h2>
+        </div>
+        <hr>
+      <form class="pure-form pure-form-stacked" method="POST" action="<?= $_SERVER['PHP_SELF'] ?>">
+
+        <div class="pure-g">
+        <div class="pure-u-1-3">
+
               <label for="username">Username:</label>
-              <input type="text" name="username" id="username" placeholder="Enter Username">
+              <input class="pure-u-23-24"  type="text" name="username" id="username" placeholder="Enter Username">
           </div>
-          <div>
+          <div class="pure-u-1-3">
+
               <label for="empid">Employee ID:</label>
-              <input type="text" name="empiid" id="empid" placeholder="Enter ID">
+              <input class="pure-u-23-24"  type="text" name="empiid" id="empid" placeholder="Enter ID">
           </div>
-          <div>
+          <div class="pure-u-1-3">
+
               <label for="title">Title:</label>
-              <input type="text" name="title" id="title" placeholder="Enter Title">
+              <input class="pure-u-23-24"  type="text" name="title" id="title" placeholder="Enter Title">
           </div>
-            <div>
+          <div class="pure-u-1-3">
+
               <label for="organization">Organization:</label>
-              <input type="text" name="organization" id="organization" placeholder="Enter Organization">
+              <input class="pure-u-23-24"  type="text" name="organization" id="organization" placeholder="Enter Organization">
             </div>
-            <div>
+            <div class="pure-u-1-3">
+
               <label for="pawprint">pawprint:</label>
-              <input type="text" name="pawprint" id="pawprint" placeholder="Enter pawprint">
+              <input class="pure-u-23-24"  type="text" name="pawprint" id="pawprint" placeholder="Enter pawprint">
             </div>
-            <div>
+            <div class="pure-u-1-3">
+
               <label for="address">Address:</label>
-              <input type="text" name="address" id="address" placeholder="Enter address">
+              <input class="pure-u-23-24"  type="text" name="address" id="address" placeholder="Enter address">
             </div>
-            <div>
+            <div class="pure-u-1-3">
+
               <label for="phone_num">Phone Number:</label>
-              <input type="text" name="phone_num" id="phone_num" placeholder="XXX-XXX-XXXX">
+              <input class="pure-u-23-24"  type="text" name="phone_num" id="phone_num" placeholder="XXX-XXX-XXXX">
             </div>
-            <input class="SubmitButton" type="submit" ></input>
+          </div>
+            <input id="tech" class="pure-button pure-button-primary" type="submit"></input>
       </form>
+    </div>
+    </div>
 
       <p><?php if(isset($format_error)) echo "!@3"; ?></p>
-      <button class="logoutButton" type="submit" name="submit" >Log Out</button>
-      <a href="<?php echo base_url(); ?>index.php/users/logout">Log Out</a>
-    </div>
+      <div class="center">
+      <button class="Submit" type="submit" name="submit"><a href="<?php echo base_url(); ?>index.php/users/logout">Log Out</a></button>
+
   </div>
 
 
