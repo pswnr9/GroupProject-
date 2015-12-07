@@ -1,3 +1,36 @@
+<?php 
+    $a = array();
+foreach($result as $result_v){
+    foreach ($result_v as $key => $value){
+                if(count($value) > 0) {
+                    if($key == "student_record_access"){
+                        $a['student_record_access'] = 1;
+                        
+                    }else if($key == "admission_access"){
+                        $a['admission_access'] = 1;
+                        
+                        
+                    }else if($key == "financial_access"){
+                        $a['financial_access'] = 1;
+                        
+                    }else if($key == "financial_aid_access"){
+                        $a['financial_aid_access'] = 1;
+                        
+                    }else if($key == "reserved_access"){
+                        
+                        $a['reserved_access'] = 1;
+                        
+                        
+                    }else {
+                        
+                    }
+                }
+            }
+    
+}
+
+
+?>
 <html>
 <head>
 <title>Security Form</title>
@@ -84,8 +117,12 @@
 
           <h3>Security Information</h3>
           <label for="new" class="pure-checkbox">
-          <input id="new" type="radio" name="request_status" value="1" checked="checked"> New Request
-          <input id="additional" type="radio" name="request_status" value="0"> Additional Request
+          <input id="new" type="radio" name="request_status" value="1" <?php if($a == array()){ ?>
+                 checked
+              <?php }   ?> > New Request
+          <input id="additional" type="radio" name="request_status" value="0" <?php if($a != array()){ ?>
+                 checked
+              <?php }   ?>> Additional Request
         </label>
 
 
@@ -159,19 +196,27 @@
 
           <h3>Which type of access do you need?</h3>
         <label for="access_type2" class="pure-checkbox">
-          <input type="checkbox" name="access_type2" id = "access_type2" value="2"> Student Records
+          <input type="checkbox" name="access_type2" id = "access_type2" value="2" <?php if($a['student_record_access'] == 1){ ?>
+                 disabled 
+              <?php }   ?>> Student Records
         </label>
         <label for="access_type3" class="pure-checkbox">
-          <input type="checkbox" name="access_type3"  id = "access_type3" value="3"> Admissions
+          <input type="checkbox" name="access_type3"  id = "access_type3" value="3"<?php if($a['admission_access'] == 1){ ?>
+                 disabled 
+              <?php }   ?>> Admissions
         </label>
         <label for="access_type4" class="pure-checkbox">
-          <input type="checkbox" name="access_type4" id = "access_type4"  value="4"> Student Financials
+          <input type="checkbox" name="access_type4" id = "access_type4"  value="4"<?php if($a['financial_access'] == 1){ ?> style="text-decoration: line-through;" disabled <?php }  ?>> Student Financials
         </label>
         <label for="access_type5" class="pure-checkbox">
-          <input type="checkbox" name="access_type5" id = "access_type5"  value="5"> Student Financial Aid
+          <input type="checkbox" name="access_type5" id = "access_type5"  value="5"<?php if($a['financial_aid_access'] == 1){ ?>
+                 disabled 
+              <?php }   ?>> Student Financial Aid
         </label>
         <label for="access_type6" class="pure-checkbox">
-          <input type="checkbox" name="access_type6"  id = "access_type6" value="6"> Reserved Access
+          <input type="checkbox" name="access_type6"  id = "access_type6" value="6"<?php if($a['reserved_access'] == 1){ ?>
+                 disabled 
+              <?php }   ?>> Reserved Access
         </label>
           <hr>
 
