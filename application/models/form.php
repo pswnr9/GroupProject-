@@ -4,7 +4,7 @@ class Form extends CI_Model{
         $config['hostname'] = 'localhost';
         $config['username'] = 'root';
         $config['password'] = 'root';
-        $config['database'] = 'TeamWt';
+        $config['database'] = 'TW';
         $config['dbdriver'] = 'mysqli';
         $config['dbprefix'] = '';
         $config['pconnect'] = FALSE;
@@ -167,6 +167,21 @@ class Form extends CI_Model{
         $query = $this->db->get();
 
         return $query->result();
+    }
+    public function getIdByPawprint($pawprint){
+  //      $arrayy = array('pawprint' => $pawprint, 'approved' => 1);
+        $this->db->select('form_id')->from('form_info')->where('pawprint',$pawprint)->where('approved',1);
+        $query = $this->db->get();
+        $result = $query->result();
+        $final = array();
+        $i = 0;
+        foreach ($result as $row)
+        {
+           $final[$i] = $row->form_id;
+            $i++;
+        }
+        return $final;
+        
     }
 
     public function getFormById($form_id) {

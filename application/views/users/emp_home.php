@@ -25,8 +25,7 @@
     <!-- </button> --></a></button>
 
 
-      <button class="Submit" type="button" data-toggle="dropdown">View Submitted Form
-    </button>
+<button class="Submit" type="submit"><a href="<?php echo base_url(); ?>index.php/forms/view_submitted_forms">View Submitted Form</a>
 
   <button class="Submit" type="submit" name="submit"><a href="<?php echo base_url(); ?>index.php/users/logout">Log Out</a></button>
 </div>
