@@ -189,7 +189,7 @@ class Form extends CI_Model{
         $query1 = $this->db->get();
         $result = array();
         if($query1->num_rows() > 0) {
-            $form_types = array("prepare_form", "admission_access", "financial_access", "financial_aid_access", "reserved_access", "student_record_access");
+            $form_types = array( "admission_access", "financial_access", "financial_aid_access", "reserved_access", "student_record_access");
             foreach ($form_types as $ft) {
                 $this->db->select('*')->from($ft)->where('form_id', $form_id);
                 $query = $this->db->get();
@@ -201,7 +201,7 @@ class Form extends CI_Model{
             $emp_user_info = $query->result_array()[0];
             unset($emp_user_info['password']);
             unset($emp_user_info['salt']);
-            $result["prepare_form"] = array_merge($emp_user_info, $result["prepare_form"]);
+        //    $result["prepare_form"] = array_merge($emp_user_info, $result["prepare_form"]);
 
         }
         return $result;

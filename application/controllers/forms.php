@@ -193,7 +193,7 @@ class Forms extends CI_Controller {
         }
         $pawprint = $_SESSION['pawprint'];
         $ids = $this->form->getIdByPawprint($pawprint);
-        print_r(var_dump($ids));
+       // print_r(var_dump($ids));
         //$ids = array(0~)
         $result = array();
         $i = 0;
