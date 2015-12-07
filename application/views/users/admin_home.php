@@ -42,7 +42,7 @@
             <tbody>
                 <?php
                     foreach ($pending_forms as $form) {
-                        echo "<tr><td>" . $form->pawprint . "</td><td>" . ($form->approved == 0 ? "<a href='" . base_url() . "index.php/forms/f/" . $form->form_id . "'>" .  $form->form_id . "</a>" : $form->form_id) . "</td><td>" . ($form->approved == 0 ? "pendding" : "approved") . "</td><td>" . $form->create_date . "</td><td>" . ($form->approved == 0 ? "<a href='" . base_url() . "index.php/forms/approve/" . $form->form_id . "'>APPROVE</a>" : "APPROVE") . "</td></tr>";
+                        echo "<tr><td>" . $form->pawprint . "</td><td>" . ($form->approved == 0 ? "<a href='" . base_url() . "index.php/forms/f/" . $form->form_id . "'>" .  $form->form_id . "</a>" : $form->form_id) . "</td><td>" . ($form->approved == 0 ? "pending" : "approved") . "</td><td>" . $form->create_date . "</td><td>" . ($form->approved == 0 ? "<a href='" . base_url() . "index.php/forms/approve/" . $form->form_id . "'>APPROVE</a>" : "APPROVE") . "</td><td><a href='" . base_url() . "index.php/forms/downloadPDF/" . $form->form_id . "'>View</a>" . "</td></tr>";
                     }
                 ?>
             </tbody>

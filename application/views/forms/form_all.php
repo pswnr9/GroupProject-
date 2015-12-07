@@ -166,8 +166,8 @@ foreach($result as $result_v){
           <hr>
 
           <h3>FERPA Score</h3>
-          <p>A passing score of 85% on theFERPA Quiz is required before access to student data is approved. To request
-            access to the FERPA tutorial and access the FERPA quiz can be done at http://myzoutraining.missouri.edu/ferpareq.php.
+          <p>A passing score of 85% on the FERPA Quiz is required before access to student data is approved. Access to the FERPA tutorial and access the FERPA quiz can be found 
+          <a href="http://myzoutraining.missouri.edu/ferpareq.php.">here</a>.
           </p>
           <div class="pure-u-1-3">
           <label for="ferpa">Ferpa Score:</label>
