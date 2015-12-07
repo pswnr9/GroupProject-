@@ -4,7 +4,7 @@ class Form extends CI_Model{
         $config['hostname'] = 'localhost';
         $config['username'] = 'root';
         $config['password'] = 'root';
-        $config['database'] = 'TeamWt';
+        $config['database'] = 'TW';
         $config['dbdriver'] = 'mysqli';
         $config['dbprefix'] = '';
         $config['pconnect'] = FALSE;
