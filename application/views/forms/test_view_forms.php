@@ -44,13 +44,13 @@ foreach($result as $result_v){
                     if($key == "student_record_access"){
                         
                         foreach ($value as $k => $v) {
-                        //    echo "<div><span>" . $k . "</span>	-  <span>" . $v . "</span></div>";
+                          //  echo "<div><span>" . $k . "</span>	-  <span>" . $v . "</span></div>";
                             $student_record_access[$k] = $v;
                         }
                         
                     }else if($key == "admission_access"){
                         foreach ($value as $k => $v) {
-                        //    echo "<div><span>" . $k . "</span>	-  <span>" . $v . "</span></div>";
+                           // echo "<div><span>" . $k . "</span>	-  <span>" . $v . "</span></div>";
                             $admission_access[$k] = $v;
                          //   echo $admission_access['act'] . "  this is " . $k . "<br>";
                         }
@@ -58,12 +58,12 @@ foreach($result as $result_v){
                         
                     }else if($key == "financial_access"){
                         foreach ($value as $k => $v) {
-                        //    echo "<div><span>" . $k . "</span>	-  <span>" . $v . "</span></div>";
+                        ///    echo "<div><span>" . $k . "</span>	-  <span>" . $v . "</span></div>";
                             $financial_access[$k] = $v;
                         }
                         
                     }else if($key == "financial_aid_access"){
-                     //   echo "<br>it is inside financial_aid_access<br>";
+                        //echo "<br>it is inside financial_aid_access<br>";
                         foreach ($value as $k => $v) {
                             $financial_aid_access[$k] = $v;
                          //   echo $financial_aid_access[$k] . $k . "<br>";
@@ -72,7 +72,7 @@ foreach($result as $result_v){
                     }else if($key == "reserved_access"){
                         
                         foreach ($value as $k => $v) {
-                    //        echo "<div><span>" . $k . "</span>	-  <span>" . $v . "</span></div>";
+                         //   echo "<div><span>" . $k . "</span>	-  <span>" . $v . "</span></div>";
                             $reserved_access[$k] = $v;
                         }
                         

@@ -56,8 +56,8 @@ class Forms extends CI_Controller {
         $data['title'] = "Form - ". $page;
 
         if($_POST) {
-
-
+            
+            
             $data = preprocess($_POST);
 
             $check_result = check_forms($data);
@@ -65,6 +65,19 @@ class Forms extends CI_Controller {
              $data = escapedata($data);
 
 
+                  $pawprint = $_SESSION['pawprint'];
+        $ids = $this->form->getIdByPawprint($pawprint);
+       // print_r(var_dump($ids));
+        //$ids = array(0~)
+        $result = array();
+        $i = 0;
+            
+        foreach ($ids as $value){
+            $result[$i] = $this->form->getFormById($value);
+            $i++;
+        }
+        //$result[0]->array of five array
+            $data["result"] = $result;
 
             if($check_result["passed"]) {
                 $form_id = $this->form->createFormInfo();
@@ -176,6 +189,8 @@ class Forms extends CI_Controller {
                 $this->load->view("templates/footer", $data);
                 return;
             }
+            
+            
         }
 
                 $data = $this->form->getAutoFill($_SESSION['pawprint']);
@@ -183,21 +198,8 @@ class Forms extends CI_Controller {
 
         
         
-        $pawprint = $_SESSION['pawprint'];
-        $ids = $this->form->getIdByPawprint($pawprint);
-       // print_r(var_dump($ids));
-        //$ids = array(0~)
-        $result = array();
-        $i = 0;
+  
             
-        foreach ($ids as $value){
-            $result[$i] = $this->form->getFormById($value);
-            $i++;
-        }
-        //$result[0]->array of five array
-            
-            $data = array("result" => $result);
-        
         
         
             $this->load->view("templates/header", $data);

@@ -6,7 +6,7 @@ $a['financial_access'] = 0;
 $a['financial_aid_access'] = 0;
 $a['reserved_access'] = 0;
 
-
+if(isset($result)){
 foreach($result as $result_v){
     foreach ($result_v as $key => $value){
                 if(count($value) > 0) {
@@ -35,7 +35,9 @@ foreach($result as $result_v){
             }
     
 }
-
+}else{
+    
+}
 
 ?>
 <html>
