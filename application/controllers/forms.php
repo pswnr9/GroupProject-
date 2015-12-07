@@ -56,29 +56,13 @@ class Forms extends CI_Controller {
         $data['title'] = "Form - ". $page;
 
         if($_POST) {
-            
-            
             $data = preprocess($_POST);
-
             $check_result = check_forms($data);
-
              $data = escapedata($data);
+             
+      
 
-
-                  $pawprint = $_SESSION['pawprint'];
-        $ids = $this->form->getIdByPawprint($pawprint);
-       // print_r(var_dump($ids));
-        //$ids = array(0~)
-        $result = array();
-        $i = 0;
             
-        foreach ($ids as $value){
-            $result[$i] = $this->form->getFormById($value);
-            $i++;
-        }
-        //$result[0]->array of five array
-            $data["result"] = $result;
-
             if($check_result["passed"]) {
                 $form_id = $this->form->createFormInfo();
 
@@ -193,14 +177,23 @@ class Forms extends CI_Controller {
             
         }
 
+        
                 $data = $this->form->getAutoFill($_SESSION['pawprint']);
 
-
         
-        
-  
+                 $pawprint = $_SESSION['pawprint'];
+        $ids = $this->form->getIdByPawprint($pawprint);
+       // print_r(var_dump($ids));
+        //$ids = array(0~)
+        $result = array();
+        $i = 0;
             
-        
+        foreach ($ids as $value){
+            $result[$i] = $this->form->getFormById($value);
+            $i++;
+        }
+        //$result[0]->array of five array
+            $data["result"] = $result;
         
             $this->load->view("templates/header", $data);
             $this->load->view("forms/form_" . $page, $data);
