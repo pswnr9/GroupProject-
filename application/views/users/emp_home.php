@@ -21,13 +21,17 @@
         </div>
     </div>
     <div class="LogInContainer">
-    <button class="Submit" type="submit"><a href="<?php echo base_url(); ?>index.php/forms/g"><!-- <button class="Submit" type="button" data-toggle="dropdown"> -->Fill out MyZou Security Request Form
+    <button class="Submit" type="submit"><a href="<?php echo base_url(); ?>index.php/forms/g"><!-- <button class="Submit" type="button" data-toggle="dropdown"> -->MyZou Security Request Form
     <!-- </button> --></a></button>
 
 
 <button class="Submit" type="submit"><a href="<?php echo base_url(); ?>index.php/forms/view_submitted_forms">View Submitted Form</a>
+<button class="Submit" type="submit"><a href="">Conduct Coordinator</a>
+<button class="Submit" type="submit"><a href="">MU Connect</a>
+<button class="Submit" type="submit"><a href="">OrgSync</a>
+<button class="Submit" type="submit"><a href="">Instructor Course Evaluations</a>
 
-  <button class="Submit" type="submit" name="submit"><a href="<?php echo base_url(); ?>index.php/users/logout">Log Out</a></button>
+<button class="Submit" type="submit" name="submit"><a href="<?php echo base_url(); ?>index.php/users/logout">Log Out</a></button>
 </div>
 </body>
 </html>

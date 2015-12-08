@@ -1,4 +1,4 @@
-<?php 
+<?php
     $a = array();
 $a['student_record_access'] =0;
 $a['admission_access'] = 0;
@@ -12,31 +12,31 @@ foreach($result as $result_v){
                 if(count($value) > 0) {
                     if($key == "student_record_access"){
                         $a['student_record_access'] = 1;
-                        
+
                     }else if($key == "admission_access"){
                         $a['admission_access'] = 1;
-                        
-                        
+
+
                     }else if($key == "financial_access"){
                         $a['financial_access'] = 1;
-                        
+
                     }else if($key == "financial_aid_access"){
                         $a['financial_aid_access'] = 1;
-                        
+
                     }else if($key == "reserved_access"){
-                        
+
                         $a['reserved_access'] = 1;
-                        
-                        
+
+
                     }else {
-                        
+
                     }
                 }
             }
-    
+
 }
 }else{
-    
+
 }
 
 ?>
@@ -175,7 +175,7 @@ foreach($result as $result_v){
           <hr>
 
           <h3>FERPA Score</h3>
-          <p>A passing score of 85% on the FERPA Quiz is required before access to student data is approved. Access to the FERPA tutorial and access the FERPA quiz can be found 
+          <p>A passing score of 85% on the FERPA Quiz is required before access to student data is approved. Access to the FERPA tutorial and access the FERPA quiz can be found
           <a href="http://myzoutraining.missouri.edu/ferpareq.php.">here</a>.
           </p>
           <div class="pure-u-1-3">
@@ -206,12 +206,12 @@ foreach($result as $result_v){
           <h3>Which type of access do you need?</h3>
         <label for="access_type2" class="pure-checkbox">
           <input type="checkbox" name="access_type2" id = "access_type2" value="2" <?php if($a['student_record_access'] == 1){ ?>
-                 disabled 
+                 disabled
               <?php }   ?>> Student Records
         </label>
         <label for="access_type3" class="pure-checkbox">
           <input type="checkbox" name="access_type3"  id = "access_type3" value="3"<?php if($a['admission_access'] == 1){ ?>
-                 disabled 
+                 disabled
               <?php }   ?>> Admissions
         </label>
         <label for="access_type4" class="pure-checkbox">
@@ -219,12 +219,12 @@ foreach($result as $result_v){
         </label>
         <label for="access_type5" class="pure-checkbox">
           <input type="checkbox" name="access_type5" id = "access_type5"  value="5"<?php if($a['financial_aid_access'] == 1){ ?>
-                 disabled 
+                 disabled
               <?php }   ?>> Student Financial Aid
         </label>
         <label for="access_type6" class="pure-checkbox">
           <input type="checkbox" name="access_type6"  id = "access_type6" value="6"<?php if($a['reserved_access'] == 1){ ?>
-                 disabled 
+                 disabled
               <?php }   ?>> Reserved Access
         </label>
           <hr>
@@ -235,7 +235,6 @@ foreach($result as $result_v){
 
 
             <div id = "form2">
-                <hr><hr><hr><hr><hr><hr>
    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -388,31 +387,43 @@ foreach($result as $result_v){
             </div>
             <!-- end of form2 -->
             <div id = "form3">
-              <div class='smallheader'>
-              <hr>
-              <h1>Admissions Access</h1>
-              <hr>
-            </div>
 
                   <h3>Select the Academic Career(s). Please check all that apply.</h3>
                   <hr>
-                      <input type="checkbox" name="all" value="all">Access to ALL test scores
+                  <label for="law" class="pure-checkbox">
+                    <label for="all" class="pure-checkbox">
+                      <input type="checkbox" name="all" value="all"> Access to ALL test scores
                       <br>
-                      <input type="checkbox" name="act" value="1">ACT
-                      <input type="checkbox" name="sat" value="1">SAT
-                      <input type="checkbox" name="gre" value="1">GRE
-                      <input type="checkbox" name="gmat" value="1">GMAT
-                      <input type="checkbox" name="tofel" value="1">TOFEL
-                      <input type="checkbox" name="lelts" value="1">IELTZ
-                      <input type="checkbox" name="lsat" value="1">LSAT
-                      <input type="checkbox" name="mcat" value="1">MCAT
-                      <input type="checkbox" name="ap" value="1">AP
-                      <input type="checkbox" name="clep" value="1">CLEP
-                      <input type="checkbox" name="ged" value="1">GED
-                      <input type="checkbox" name="millers" value="1">MILLERS
-                      <input type="checkbox" name="prax" value="1">PRAX
-                      <input type="checkbox" name="pla-mu" value="1">PLA-MU
-                      <input type="checkbox" name="base" value="1">BASE
+                      <label for="act" class="pure-checkbox">
+                        <input type="checkbox" name="act" value="1"> ACT
+                        <label for="sat" class="pure-checkbox">
+                      <input type="checkbox" name="sat" value="1"> SAT
+                      <label for="gre" class="pure-checkbox">
+                        <input type="checkbox" name="gre" value="1"> GRE
+                        <label for="gmat" class="pure-checkbox">
+                        <input type="checkbox" name="gmat" value="1"> GMAT
+                        <label for="tofel" class="pure-checkbox">
+                      <input type="checkbox" name="tofel" value="1"> TOFEL
+                      <label for="lelts" class="pure-checkbox">
+                        <input type="checkbox" name="lelts" value="1"> IELTZ
+                        <label for="lsat" class="pure-checkbox">
+                        <input type="checkbox" name="lsat" value="1"> LSAT
+                        <label for="mcat" class="pure-checkbox">
+                      <input type="checkbox" name="mcat" value="1"> MCAT
+                      <label for="ap" class="pure-checkbox">
+                        <input type="checkbox" name="ap" value="1"> AP
+                        <label for="clep" class="pure-checkbox">
+                      <input type="checkbox" name="clep" value="1"> CLEP
+                      <label for="ged" class="pure-checkbox">
+                      <input type="checkbox" name="ged" value="1"> GED
+                      <label for="millers" class="pure-checkbox">
+                      <input type="checkbox" name="millers" value="1"> MILLERS
+                      <label for="prax" class="pure-checkbox">
+                      <input type="checkbox" name="prax" value="1"> PRAX
+                      <label for="pla-mu" class="pure-checkbox">
+                      <input type="checkbox" name="pla-mu" value="1"> PLA-MU
+                      <label for="base" class="pure-checkbox">
+                      <input type="checkbox" name="base" value="1"> BASE
                       <br>
                       <hr>
 
@@ -420,12 +431,15 @@ foreach($result as $result_v){
             <div id = "form4">
                 <div  >
 
-                      <p>SF General Inquiry: For staff outside of the Cashier's Office<p>
-                      <input type="checkbox" name="general_inquiry" value="1">View
+                      <h3>SF General Inquiry: For staff outside of the Cashier's Office</h3>
+                      <label for="general_inquiry" class="pure-checkbox">
+                      <input type="checkbox" name="general_inquiry" value="1"> View
                       <br>
-                      <p>SF Cash Group Post: Also known as Cost Centers
-                      <input type="checkbox" name="cash_group_post[]" value="1">View
-                      <input type="checkbox" name="cash_group_post[]" value="0">Update
+                      <h3>SF Cash Group Post: Also known as Cost Centers</h3>
+                      <label for="cash_group_post[]" class="pure-checkbox">
+                      <input type="checkbox" name="cash_group_post[]" value="1"> View
+                      <label for="cash_group_post[]" class="pure-checkbox">
+                      <input type="checkbox" name="cash_group_post[]" value="0"> Update
                       <hr>
 
                     </div>
@@ -434,11 +448,13 @@ foreach($result as $result_v){
             <div id = "form5">
                 <div>
 
-                      <p>FA Cash: View a student's fincancial aid awards and budget<p>
-                      <input type="checkbox" name="fa_cash" value="1">View
+                      <h3>FA Cash: View a student's fincancial aid awards and budget</h3>
+                      <label for="fa_cash" class="pure-checkbox">
+                      <input type="checkbox" name="fa_cash" value="1"> View
                       <br>
-                      <p>FA Non Financial Aid Staff: Also known as Cost Centers
-                      <input type="checkbox" name="fa_non_financial_aid_stuff" value="1">View
+                      <h3>FA Non Financial Aid Staff: Also known as Cost Centers</h3>
+                      <label for="fa_non_financial_aid_stuff" class="pure-checkbox">
+                      <input type="checkbox" name="fa_non_financial_aid_stuff" value="1"> View
                       <hr>
 
                     </div>
