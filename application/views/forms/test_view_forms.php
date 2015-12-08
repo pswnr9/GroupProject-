@@ -133,13 +133,13 @@ if($student_record_access != array()){?>
                 <td>Advanced Inquiry</td>
                 <td>Includes Basic Inquiry access. Additionally includes relations with institution, citizenship, visa, decedant data, student enrollment, gpa, term history, 3C's, advisors, student groups</td>
                 <td class = "right_two_cols"><?php
-                    if($student_record_access['advanced_inquiry'] == 1 || $student_record_access['advanced_inquiry'] == 10){
+                    if($student_record_access['advanced_inquiry'] == 11 || $student_record_access['advanced_inquiry'] == 10){
                         echo form_checkbox('advanced_inquiry','1',TRUE);
                     }else {
                         echo form_checkbox('advanced_inquiry','1',FALSE);
                     } ?></td>
                 <td class = "right_two_cols"><?php
-                    if($student_record_access['advanced_inquiry'] == 01 || $student_record_access['advanced_inquiry'] == 1){
+                    if($student_record_access['advanced_inquiry'] == 11 || $student_record_access['advanced_inquiry'] == 1){
                         echo form_checkbox('advanced_inquiry','1',TRUE);
                     }else {
                         echo form_checkbox('advanced_inquiry','1',FALSE);
@@ -149,13 +149,13 @@ if($student_record_access != array()){?>
                 <td>3Cs</td>
                     <td>Checklists, Comments, Communications</td>
                 <td class = "right_two_cols"><?php
-                    if($student_record_access['3Cs'] == 1 || $student_record_access['3Cs'] == 10){
+                    if($student_record_access['3Cs'] == 11 || $student_record_access['3Cs'] == 10){
                         echo form_checkbox('3Cs','1',TRUE);
                     }else {
                         echo form_checkbox('3Cs','1',FALSE);
                     } ?></td>
                 <td class = "right_two_cols"><?php
-                    if($student_record_access['3Cs'] == 01 || $student_record_access['3Cs'] == 1){
+                    if($student_record_access['3Cs'] == 1 || $student_record_access['3Cs'] == 11){
                         echo form_checkbox('3Cs','1',TRUE);
                     }else {
                         echo form_checkbox('3Cs','1',FALSE);
@@ -187,13 +187,13 @@ if($student_record_access != array()){?>
                 <td>Service Indicators (Holds)</td>
                     <td>Administrative users with proper security can assign or remove service indicators from a student's record</td>
                 <td class = "right_two_cols"><?php
-                    if($student_record_access['service_indicators'] == 1 || $student_record_access['service_indicators'] == 10){
+                    if($student_record_access['service_indicators'] == 10 || $student_record_access['service_indicators'] == 11){
                         echo form_checkbox('service_indicators','1',TRUE);
                     }else {
                         echo form_checkbox('service_indicators','1',FALSE);
                     } ?></td>
                 <td class = "right_two_cols"><?php
-                    if($student_record_access['service_indicators'] == 01 || $student_record_access['service_indicators'] == 1){
+                    if($student_record_access['service_indicators'] == 1 || $student_record_access['service_indicators'] == 11){
                         echo form_checkbox('service_indicators','1',TRUE);
                     }else {
                         echo form_checkbox('service_indicators','1',FALSE);
@@ -225,13 +225,13 @@ if($student_record_access != array()){?>
                 <td>Registrar Enrollment</td>
                     <td>Adding and dropping a course utilizing Enrollment Request</td>
                 <td class = "right_two_cols"><?php
-                    if($student_record_access['registrar_enrollment'] == 1 || $student_record_access['registrar_enrollment'] == 10){
+                    if($student_record_access['registrar_enrollment'] == 11 || $student_record_access['registrar_enrollment'] == 10){
                         echo form_checkbox('registrar_enrollment','1',TRUE);
                     }else {
                         echo form_checkbox('registrar_enrollment','1',FALSE);
                     } ?></td>
                 <td class = "right_two_cols"><?php
-                    if($student_record_access['registrar_enrollment'] == 01 || $student_record_access['registrar_enrollment'] == 1){
+                    if($student_record_access['registrar_enrollment'] == 1 || $student_record_access['registrar_enrollment'] == 11){
                         echo form_checkbox('registrar_enrollment','1',TRUE);
                     }else {
                         echo form_checkbox('registrar_enrollment','1',FALSE);
@@ -285,13 +285,13 @@ if($student_record_access != array()){?>
                 <td>Block Enrollments</td>
                     <td>Adding and dropping a course utilizing Enrollment Request</td>
                 <td class = "right_two_cols"><?php
-                    if($student_record_access['block_enrollment'] == 1 || $student_record_access['block_enrollment'] == 10){
+                    if($student_record_access['block_enrollment'] == 11 || $student_record_access['block_enrollment'] == 10){
                         echo form_checkbox('block_enrollment','1',TRUE);
                     }else {
                         echo form_checkbox('block_enrollment','1',FALSE);
                     } ?></td>
                 <td class = "right_two_cols"><?php
-                    if($student_record_access['block_enrollment'] == 01 || $student_record_access['block_enrollment'] == 1){
+                    if($student_record_access['block_enrollment'] == 1 || $student_record_access['block_enrollment'] == 11){
                         echo form_checkbox('block_enrollment','1',TRUE);
                     }else {
                         echo form_checkbox('block_enrollment','1',FALSE);
@@ -397,13 +397,13 @@ if($financial_access != array()){ ?>
                       <br>
                       <p>SF Cash Group Post: Also known as Cost Centers
                       <input type="checkbox" name="cash_group_post[]" value="1" <?php
-                             if($financial_access['cash_group_post'] == 10 || $financial_access['cash_group_post'] == 1){ ?>
+                             if($financial_access['cash_group_post'] == 10 || $financial_access['cash_group_post'] == 11){ ?>
                              checked
                              <?php }else{ ?>
 
                              <?php } ?>>View
                       <input type="checkbox" name="cash_group_post[]" value="0" <?php
-                             if($financial_access['cash_group_post'] == 1 || $financial_access['cash_group_post'] == 01){ ?>
+                             if($financial_access['cash_group_post'] == 1 || $financial_access['cash_group_post'] == 11){ ?>
                              checked
                              <?php }else{ ?>
 
@@ -422,10 +422,10 @@ if($financial_aid_access != array()){ ?>
         <h1>financial aid access</h1>
                 <div>
                       <p>FA Cash: View a student's fincancial aid awards and budget<p>
-                      <input type="checkbox" name="fa_cash" value="1"<?php if($financial_aid_access['fa_cash']==1){ ?>checked<?php } ?>>View
+                      <input type="checkbox" name="fa_cash" value="1"<?php if($financial_aid_access['fa_cash'] == 1){ ?>checked<?php } ?>>View
                       <br>
                       <p>FA Non Financial Aid Staff: Also known as Cost Centers
-                      <input type="checkbox" name="fa_non_financial_aid_stuff" value="1" <?php if($financial_aid_access['fa_non_financial_aid_stuff']==1){ ?>checked <?php } ?>>View
+                      <input type="checkbox" name="fa_non_financial_aid_stuff" value="1" <?php if($financial_aid_access['fa_non_financial_aid_stuff'] == 1){ ?>checked <?php } ?>>View
                       <hr>
 
                     </div>
@@ -456,13 +456,13 @@ if($reserved_access != array()){ ?>
                             <tr>
                                 <td>Immunization view</td>
 
-                                <td class = "right_two_cols"><?php if($reserved_access['immunization_view'] == 10 || $reserved_access['immunization_view'] == 1){
+                                <td class = "right_two_cols"><?php if($reserved_access['immunization_view'] == 10 || $reserved_access['immunization_view'] == 11){
                                         echo form_checkbox('immunization_view[]','1',TRUE);
                                     }else{
                                         echo form_checkbox('immunization_view[]','1',FALSE);
                                     }
                                     ?></td>
-                                <td class = "right_two_cols"><?php if($reserved_access['immunization_view'] == 0 || $reserved_access['immunization_view'] == 0){
+                                <td class = "right_two_cols"><?php if($reserved_access['immunization_view'] == 10 || $reserved_access['immunization_view'] == 0){
                                         echo form_checkbox('immunization_view[]','0',FALSE);
                                     }else {
                                         echo form_checkbox('immunization_view[]','0',TRUE);
@@ -485,7 +485,7 @@ if($reserved_access != array()){ ?>
                                 <td>Transfer Credit Admission</td>
 
                                 <td class = "right_two_cols"><?php
-if($reserved_access['transfer_credit_admission'] == 0 || $reserved_access['transfer_credit_admission'] == 01){
+if($reserved_access['transfer_credit_admission'] == 0 || $reserved_access['transfer_credit_admission'] == 1){
 echo form_checkbox('transfer_credit_admission[]','1',FALSE);
 }else{
    echo form_checkbox('transfer_credit_admission[]','1',TRUE);
@@ -541,14 +541,14 @@ echo form_checkbox('support_staff[]','1',TRUE);
                                        <td>Advance Standing Report</td>
 
                                 <td class = "right_two_cols"><?php
-if($reserved_access['advance_standing_report'] == 01 || $reserved_access['advance_standing_report'] == 0){
+if($reserved_access['advance_standing_report'] == 1 || $reserved_access['advance_standing_report'] == 0){
 echo form_checkbox('support_staff[]','1',FALSE);
 }else{
 echo form_checkbox('support_staff[]','1',TRUE);
 
 } ?></td>
                                 <td class = "right_two_cols"><?php
-if($reserved_access['advance_standing_report'] == 01 || $reserved_access['advance_standing_report'] == 0){
+if($reserved_access['advance_standing_report'] == 10 || $reserved_access['advance_standing_report'] == 0){
 echo form_checkbox('support_staff[]','1',FALSE);
 }else{
 echo form_checkbox('support_staff[]','1',TRUE);
