@@ -6,7 +6,7 @@ $a['financial_access'] = 0;
 $a['financial_aid_access'] = 0;
 $a['reserved_access'] = 0;
 
-
+if(isset($result)){
 foreach($result as $result_v){
     foreach ($result_v as $key => $value){
                 if(count($value) > 0) {
@@ -35,7 +35,9 @@ foreach($result as $result_v){
             }
     
 }
-
+}else{
+    
+}
 
 ?>
 <html>
@@ -124,12 +126,12 @@ foreach($result as $result_v){
 
           <h3>Security Information</h3>
           <label for="new" class="pure-checkbox">
-          <input id="new" type="radio" name="request_status" value="1" <?php if($a == array()){ ?>
+          <input id="new" type="radio" name="request_status" value="1" <?php if($a['student_record_access'] == 0 && $a['admission_access'] == 0 && $a['financial_access'] == 0 && $a['financial_aid_access'] == 0 && $a['reserved_access'] == 0){ ?>
                  checked
               <?php }   ?> > New Request
-          <input id="additional" type="radio" name="request_status" value="0" <?php if($a != array()){ ?>
+          <input id="additional" type="radio" name="request_status" value="0" <?php if($a['student_record_access'] == 1 || $a['admission_access'] == 1 || $a['financial_access'] == 1 || $a['financial_aid_access'] == 1 || $a['reserved_access'] == 1){ ?>
                  checked
-              <?php }   ?>> Additional Request
+              <?php }   ?> > Additional Request
         </label>
 
 
