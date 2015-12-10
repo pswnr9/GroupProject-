@@ -1,3 +1,4 @@
+
 <?php
     $a = array();
 $a['student_record_access'] =0;
@@ -128,7 +129,9 @@ foreach($result as $result_v){
           <label for="new" class="pure-checkbox">
           <input id="new" type="radio" name="request_status" value="1" <?php if($a['student_record_access'] == 0 && $a['admission_access'] == 0 && $a['financial_access'] == 0 && $a['financial_aid_access'] == 0 && $a['reserved_access'] == 0){ ?>
                  checked
-              <?php }   ?> > New Request
+              <?php }else{ ?>
+                 disabled
+                <?php } ?> > New Request
           <input id="additional" type="radio" name="request_status" value="0" <?php if($a['student_record_access'] == 1 || $a['admission_access'] == 1 || $a['financial_access'] == 1 || $a['financial_aid_access'] == 1 || $a['reserved_access'] == 1){ ?>
                  checked
               <?php }   ?> > Additional Request
@@ -180,7 +183,7 @@ foreach($result as $result_v){
           </p>
           <div class="pure-u-1-3">
           <label for="ferpa">Ferpa Score:</label>
-          <input type="number" name="ferpa_score" id="ferpa" class="pure-u-23-24" max="100" min="85">
+          <input type="number" name="ferpa_score" id="ferpa" class="pure-u-23-24" max="100" min="85" placeholder="your score">
         </div>
           <hr>
 
@@ -538,7 +541,43 @@ foreach($result as $result_v){
 
                         <input type="hidden" name = "access6" id = "access6" value = "">
             <hr>
-            <input id="clean" class="pure-button pure-button-primary" type="submit" value="Submit">
+            <input id="clean" class="pure-button pure-button-primary" type="submit" value="Submit" onclick = "check()">
+                    
+                    <button style = "float:right;" class="pure-button pure-button-primary"><a style = "color:white;" href="<?php echo base_url() ?>index.php/users/home">   Back</a>  </button>
+                    <script>
+                        if(localStorage.getItem("ferpa_score_check") == 1){
+                            alert("you must have a ferpa score");
+                        }
+                        if(localStorage.getItem("phone_num_check") == 1){
+                            alert("phone number format 111-111-1111");
+                        }
+                    </script>
+                    <script>
+                        
+                        function check(){
+                            
+                            
+                            var a = document.getElementById('ferpa').value;
+                            if(a == ""){
+                                localStorage.setItem("ferpa_score_check", 1);
+                                console.log(localStorage.getItem("ferpa_score_check"));
+                            }else{
+                                localStorage.setItem("ferpa_score_check", 0);
+                                console.log(localStorage.getItem("ferpa_score_check"));
+                            }
+                            
+                            
+                            var str = document.getElementById('number').value;
+                            var patt = /[0-9]{3}-[0-9]{3}-[0-9]{4}/g;
+                            var res = patt.test(str);
+                            if(res == false){
+                                localStorage.setItem("phone_num_check", 1);
+                            }else{
+                                localStorage.setItem("phone_num_check", 0);
+                            }
+                        }
+                    
+                    </script>
 
 </div>
 

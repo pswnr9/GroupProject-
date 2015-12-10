@@ -224,6 +224,33 @@ class Forms extends CI_Controller {
         
         
     }
+    
+    
+    public function view_denied_forms(){
+        if(!session()) {
+            redirect("index.php/users/login");
+        }
+        $pawprint = $_SESSION['pawprint'];
+        $ids = $this->form->getIdByPawprint_denied($pawprint);
+       // print_r(var_dump($ids));
+        //$ids = array(0~)
+        $result = array();
+        $i = 0;
+            
+        foreach ($ids as $value){
+            $result[$i] = $this->form->getFormById($value);
+            $i++;
+        }
+        //$result[0]->array of five array
+            
+            $data = array("result" => $result);
+
+        $this->load->view("forms/test_view_denied_forms", $data);
+        
+        
+    }
+    
+    
     public function downloadPDF($formID) {
         //this data will be passed on to the view
         $form_info = $this->form->getFormById($formID);

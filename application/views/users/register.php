@@ -92,10 +92,18 @@
         </div>
         <button id="registerbutton" class="pure-button pure-button-primary" type="submit" >Register</button>
     </form>
-    <p><?php echo isset($format_error) ? "format error: " . $format_error : ""; ?></p>
-    <p><?php echo isset($db_error) ? "db error: " . $db_error . " or the account has existed." : ""; ?></p>
+    <p><?php if(isset($format_error)) {
+                if($format_error == "phone_num"){
+                    echo "Phone Number Format Wrong";
+                }
+                if($format_error == "empiid"){
+                    echo "Emp id wrong";
+                    
+                }
+            } ?></p>
+    <p><?php echo isset($db_error) ? "Account has already existed." : ""; ?></p>
     <div>
-        <p>Already have an account? <a href="<?php echo base_url() ?>index.php/users/login">Login</a></p>
+        <p >Already have an account? <a style = "color:blue;" href="<?php echo base_url() ?>index.php/users/login">Login</a> or <a style = "color:blue;" href="<?php echo base_url() ?>index.php/users/login">back</a></p>
     </div>
   </div>
 </div>

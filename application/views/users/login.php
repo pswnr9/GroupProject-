@@ -56,8 +56,8 @@
             </div>
             <input type="submit" value="Submit" class="Submit">
         </form>
-    <div id="register"><button class="Submit" type="submit"><a href="<?php echo base_url(); ?>index.php/users/register">Register</a></button>
-    <p style="font-size: 25px; color:red"><?php echo isset($auth_error) ? "Username or password incorrect! Error: " . $auth_error : ""; ?></p>
+    <div id="register"><button class="Submit" type="submit"><a href="<?php echo base_url(); ?>index.php/users/register">Register (Employee)</a></button>
+    <p style="font-size: 25px; color:red"><?php echo isset($auth_error) ? "Username or password incorrect" . "" : ""; ?></p>
   </div>
 </div>
 </body>
