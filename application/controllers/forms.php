@@ -41,6 +41,21 @@ class Forms extends CI_Controller {
         $this->form->approveForm($page, true, $_SESSION["pawprint"]);
         redirect("index.php/users/home");
     }
+    
+      public function deny($page) {
+        $form_info = $this->form->getFormById($page);
+        if(count($form_info) == 0) {
+            show_404();
+        }
+
+        session_start();
+        if(!isset($_SESSION)) {
+            return;
+        }
+
+        $this->form->denyForm($page, true, $_SESSION["pawprint"]);
+        redirect("index.php/users/home");
+    }
 
     //start of function g
     public function g($page ="all") {
@@ -232,6 +247,30 @@ class Forms extends CI_Controller {
         }
         $pawprint = $_SESSION['pawprint'];
         $ids = $this->form->getIdByPawprint_denied($pawprint);
+       // print_r(var_dump($ids));
+        //$ids = array(0~)
+        $result = array();
+        $i = 0;
+            
+        foreach ($ids as $value){
+            $result[$i] = $this->form->getFormById($value);
+            $i++;
+        }
+        //$result[0]->array of five array
+            
+            $data = array("result" => $result);
+
+        $this->load->view("forms/test_view_denied_forms", $data);
+        
+        
+    }
+        
+    public function view_pending_forms(){
+        if(!session()) {
+            redirect("index.php/users/login");
+        }
+        $pawprint = $_SESSION['pawprint'];
+        $ids = $this->form->getIdByPawprint_pending($pawprint);
        // print_r(var_dump($ids));
         //$ids = array(0~)
         $result = array();

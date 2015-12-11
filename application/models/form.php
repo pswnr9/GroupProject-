@@ -161,6 +161,14 @@ class Form extends CI_Model{
         $this->db->where('form_id', $form_id);
         $this->db->update('form_info', array("approved" => $approved, "approved_date" => date('Y-m-d'), "admin_approved_pawprint" => $admin_pp));
     }
+        
+    public function denyForm($form_id, $approved, $admin_pp) {
+        $approved = 2;
+        $this->db->where('form_id', $form_id);
+        $this->db->update('form_info', array("approved" => $approved, "approved_date" => date('Y-m-d'), "admin_approved_pawprint" => $admin_pp));
+    }
+    
+    
 
     public function getPendingForms() {
         $this->db->select('*')->from('form_info');
@@ -185,6 +193,22 @@ class Form extends CI_Model{
     }
     
     public function getIdByPawprint_denied($pawprint){
+  //      $arrayy = array('pawprint' => $pawprint, 'approved' => 1);
+        $this->db->select('form_id')->from('form_info')->where('pawprint',$pawprint)->where('approved',2);
+        $query = $this->db->get();
+        $result = $query->result();
+        $final = array();
+        $i = 0;
+        foreach ($result as $row)
+        {
+           $final[$i] = $row->form_id;
+            $i++;
+        }
+        return $final;
+
+    }
+    
+    public function getIdByPawprint_pending($pawprint){
   //      $arrayy = array('pawprint' => $pawprint, 'approved' => 1);
         $this->db->select('form_id')->from('form_info')->where('pawprint',$pawprint)->where('approved',0);
         $query = $this->db->get();

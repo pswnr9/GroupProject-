@@ -26,7 +26,8 @@
 
 
 <button class="Submit" type="submit"><a href="<?php echo base_url(); ?>index.php/forms/view_submitted_forms">View Approved Form</a>
-<button class="Submit" type="submit"><a href="<?php echo base_url(); ?>index.php/forms/view_denied_forms">View Pending Form(Most Recent)</a>
+<button class="Submit" type="submit"><a href="<?php echo base_url(); ?>index.php/forms/view_denied_forms">View Denied Form(Most Recent)</a>
+<button class="Submit" type="submit"><a href="<?php echo base_url(); ?>index.php/forms/view_pending_forms">View Pending Form(Most Recent)</a>
 
 <button class="Submit" type="submit"><a href="">Conduct Coordinator</a>
 <button class="Submit" type="submit"><a href="">MU Connect</a>
