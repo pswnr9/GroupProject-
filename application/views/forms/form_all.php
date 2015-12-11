@@ -330,7 +330,7 @@ foreach($result as $result_v){
                 <tr>
                 <td>Advisor Student Center</td>
                     <td>Access to students study list, advisor, program/plan, demographic data, e-mail address</td>
-                <td class = "right_two_cols"><?php echo form_checkbox('advisor_student_center ','1',FALSE); ?></td>
+                <td class = "right_two_cols"><?php echo form_checkbox('advisor_student_center','1',FALSE); ?></td>
                 <td class = "right_two_cols"> </td>
               </tr>
             <tr>
@@ -422,7 +422,7 @@ foreach($result as $result_v){
                       <label for="millers" class="pure-checkbox">
                       <input type="checkbox" name="millers" value="1"> MILLERS
                       <label for="prax" class="pure-checkbox">
-                      <input type="checkbox" name="prax" value="1"> PRAX
+                      <input type="checkbox" name="rpax" value="1"> PRAX
                       <label for="pla-mu" class="pure-checkbox">
                       <input type="checkbox" name="pla-mu" value="1"> PLA-MU
                       <label for="base" class="pure-checkbox">
@@ -542,7 +542,7 @@ foreach($result as $result_v){
                         <input type="hidden" name = "access6" id = "access6" value = "">
             <hr>
             <input id="clean" class="pure-button pure-button-primary" type="submit" value="Submit" onclick = "check()">
-                    
+
                     <button style = "float:right;" class="pure-button pure-button-primary"><a style = "color:white;" href="<?php echo base_url() ?>index.php/users/home">   Back</a>  </button>
                     <script>
                         if(localStorage.getItem("ferpa_score_check") == 1){
@@ -553,10 +553,10 @@ foreach($result as $result_v){
                         }
                     </script>
                     <script>
-                        
+
                         function check(){
-                            
-                            
+
+
                             var a = document.getElementById('ferpa').value;
                             if(a == ""){
                                 localStorage.setItem("ferpa_score_check", 1);
@@ -565,8 +565,8 @@ foreach($result as $result_v){
                                 localStorage.setItem("ferpa_score_check", 0);
                                 console.log(localStorage.getItem("ferpa_score_check"));
                             }
-                            
-                            
+
+
                             var str = document.getElementById('number').value;
                             var patt = /[0-9]{3}-[0-9]{3}-[0-9]{4}/g;
                             var res = patt.test(str);
@@ -576,7 +576,7 @@ foreach($result as $result_v){
                                 localStorage.setItem("phone_num_check", 0);
                             }
                         }
-                    
+
                     </script>
 
 </div>
